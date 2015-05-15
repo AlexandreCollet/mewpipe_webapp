@@ -1,0 +1,64 @@
+/**
+ * COLORS
+ */
+
+$color-text : #fff;
+$color-bg   : #111;
+
+$color-elements : rgb(86,180,211);
+
+$colors : (
+	"yellow" : #f2ae44,
+	"blue"   : #56B4D3,
+	"green"  : #00C8C8,
+	"orange" : #ff6d00,
+	"violet" : #9e7ac2
+);
+
+/**
+ * IMAGES
+ */
+
+$img-bg : "../img/cat.jpg";
+
+/**
+ * FONTS
+ */
+
+$font-logo   : "pacifico";
+$font-texts  : "canaro";
+$font-titles : "panton";
+$font-icons  : "icons";
+
+$font-icons-map : (
+	"search"       : "?",
+	"arrow-top"    : "8",
+	"arrow-right"  : "6",
+	"arrow-bottom" : "2",
+	"arrow-left"   : "4",
+	"play"         : ">",
+	"edit"         : "e",
+	"delete"       : "t",
+	"share"        : "s"
+);
+
+/**
+ * SECTION NAVIGATION
+ */
+
+$nav-width : 240px;
+
+/**
+ * SECTION VIDEO BACKGROUND
+ */
+
+$video_opacity : 0.5;
+
+/**
+ * PLUGIN RESPONSIVE
+ */
+
+$nbcolumns   : 12;
+$prefixs     : xs s l xl;
+$breakpoints : 768px 992px 1200px;
+$gutterSize  : 15px;

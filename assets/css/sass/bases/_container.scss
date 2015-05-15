@@ -1,0 +1,14 @@
+.container{
+	@include box-sizing(border-box);
+	min-height:100%;
+	@include relative;
+	margin: 0;
+	@include transition( all 1s ); 
+	@include breakpoint-medium-large{
+		margin-left: $nav-width;
+		padding-top: $gutterSize;
+	}
+	padding: $gutterSize+100 $gutterSize $gutterSize+50 $gutterSize;
+	background: lighten($color-bg,5%);
+	font-size: 0;
+}

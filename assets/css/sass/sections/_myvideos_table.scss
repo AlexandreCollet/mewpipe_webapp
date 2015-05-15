@@ -1,0 +1,37 @@
+table{
+	width: 100%;
+	margin: 0 auto; 
+}
+
+th{
+	font-family: $font-titles;
+	font-size: 25px;
+	@include multiple-colors(color);
+	margin-bottom: $gutterSize;
+	padding: $gutterSize;
+}
+
+td{
+	font-size: 20px;
+	line-height: 30px;
+	color: $color-text;
+	font-family: $font-texts;
+}
+
+tr:nth-child(even){ background: lighten($color-bg,10%); }
+
+.views,.shares{ 
+	text-align: center; 
+	@include breakpoint-tiny { display: none; }
+}
+
+.actions{
+	text-align: center;
+}
+.actions a{ 
+	font-family: $font-icons;
+	text-decoration: none;
+	color:white;
+	font-size: 25px;
+	&:not(:last-child){ padding-right: $gutterSize; }
+}

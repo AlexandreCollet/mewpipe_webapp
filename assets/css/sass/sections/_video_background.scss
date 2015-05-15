@@ -1,0 +1,27 @@
+#video_background{
+	
+	@include fixed;
+
+	z-index: -100;
+
+	background: url($img-bg) center center;
+	
+	@include breakpoint-tiny{display: none;}
+}
+
+#video_filter{
+	
+	@include fixed;
+
+	@include size(100%);
+	z-index: -99;
+
+	opacity : $video_opacity;
+	@include multiple-colors(background);
+
+}
+html{
+	@include breakpoint-tiny-small{
+		background: url($img-bg) center center;
+	}
+}

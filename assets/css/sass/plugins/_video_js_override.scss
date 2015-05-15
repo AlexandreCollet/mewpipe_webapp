@@ -1,0 +1,43 @@
+.video-js{ margin: 0 auto; }
+
+.vjs-sublime-skin{
+
+	.vjs-progress-control{
+		left: 120px;
+	}
+
+	.vjs-control-bar{
+		background-color: rgba(0,0,0,0.5);
+	}
+
+	.vjs-current-time, .vjs-time-divider, .vjs-duration{
+		position: absolute;
+		top:50%;
+		margin-top: -5px;		
+	}
+	.vjs-current-time{ left: 50px; }
+	.vjs-time-divider{ left: 75px; line-height: normal; margin-top: -6px; }
+	.vjs-duration{ left: 84px; }
+
+	.vjs-load-progress { 
+		@include size(width 15px height 4px);
+		@include border-radius(2px);
+		@include absolute(top 50% left 0 right 0);
+		margin-top: -2px;
+		background: white;
+		//@include multiple-colors(background); 
+	}
+	.vjs-play-progress{ @include multiple-colors(background-color); }
+
+	.vjs-control-text {
+		/* hide-visually */
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+}

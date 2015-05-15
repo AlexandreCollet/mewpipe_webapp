@@ -1,0 +1,13 @@
+.loader{
+	
+	@include size(width 100% height 30px);
+	background: url('../img/loaders/white.svg') no-repeat center; 
+
+	.blue & { background: url('../img/loaders/blue.svg') no-repeat center; }
+	.green & { background: url('../img/loaders/green.svg') no-repeat center; }
+	.orange & { background: url('../img/loaders/orange.svg') no-repeat center; }
+	.violet & { background: url('../img/loaders/violet.svg') no-repeat center; }
+	.yellow & { background: url('../img/loaders/yellow.svg') no-repeat center; }
+
+	&.hidden{ display: none; }
+}

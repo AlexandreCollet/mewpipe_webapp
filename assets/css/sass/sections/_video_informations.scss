@@ -1,0 +1,53 @@
+.video_informations{
+	
+	margin-top: $gutterSize;
+	font-size: 0;
+	
+	.description, .scores, .author { 
+		@include box-sizing(border-box);
+		@include inline-block(top); 
+		padding: $gutterSize;
+	}
+	
+	.description{ 
+		width:50%; 
+		@include breakpoint-tiny-small-medium{ width : 100%; }
+	}
+	.scores, .author { 
+		width: 25%; 
+		@include breakpoint-tiny{ width: 100%; }
+		@include breakpoint-small-medium{ width : 50%; }
+	}
+
+
+
+	.description{
+		font-size: 20px;
+		font-family: $font-texts;
+		color : $color-text;
+		text-align: justify;
+	}
+
+	.score{
+		font-family: $font-titles;
+		color: $color-text;
+		text-align: center;
+		span { 
+			display: block;
+			@include multiple-colors(color); 
+		}
+		font-size: 40px;
+		margin-bottom: $gutterSize;
+	}
+	
+	.author{text-align: center;}
+	.avatar{
+		width:50%;
+	}
+	.pseudo{ 
+		font-size: 20px;
+		line-height: 30px;
+		font-family: $font-titles; 
+		color:$color-text;
+	}
+}

@@ -1,0 +1,103 @@
+.video_preview{
+	@include box-sizing(border-box);
+	@include relative;
+	overflow: hidden;
+	@include inline-block(top);
+	width: 96%;
+	@include breakpoint-small-medium-large{ width:98%; }
+	margin:2%;
+	@include breakpoint-small-medium-large{ margin:1% 2%; }
+	@include multiple-colors(background);
+	cursor:pointer;
+	img{
+		@include box-sizing(border-box);
+		@include relative;
+		display: block;
+		opacity: 1;
+		width:105%;
+		@include transition(all 0.35s);
+		@include transform(translate3d(-2.5%,0,0));
+	}
+
+	figcaption{
+		@include box-sizing(border-box);
+		@include absolute(top 0 left 0);
+		@include size(100%);
+		padding: $gutterSize;
+	}
+
+	h3{
+		@include relative;
+		padding: $gutterSize 0;
+		&:after{
+			content: "";
+			@include absolute(bottom 0 left 0);
+			@include size(width 100% height 3px);
+			background: $color-text;
+			@include transition(all 0.35s);
+			@include transform(translate3d(-100%,0,0));
+		}
+	}
+
+	p{
+		text-align: right;
+		font-family: $font-icons;
+		padding: $gutterSize 0;
+		opacity: 0;
+		font-size: 30px;
+		color:$color-text;
+		@include transition(all 0.35s);
+		@include transform(translate3d(100%,0,0));
+	}
+
+	.video_main_link{
+		@include absolute(top 0 left 0);
+		@include size(100%);
+	}
+
+	.video_link{
+		text-decoration: none;
+		color:$color-text;
+		@include transition(all 0.35s);
+		opacity: 0.7;
+		&:hover{
+			opacity: 1;
+		}
+	}
+
+
+	&:hover{
+		& img {
+			opacity: 0.4;
+			@include transform(translate3d(0,0,0));
+		}
+		& h3:after{
+			@include transform(translate3d(0,0,0));
+		}
+
+		& p{
+			opacity: 1;
+			@include transform(translate3d(0,0,0));
+		}
+	}
+}
+
+.tiny_1_column  .video_preview {@include breakpoint-tiny{ width: 94%; }}
+.tiny_2_columns .video_preview {@include breakpoint-tiny{ width: 44%; }}
+.tiny_3_columns .video_preview {@include breakpoint-tiny{ width: 26.67%; }}
+.tiny_4_columns .video_preview {@include breakpoint-tiny{ width: 19%; }}
+
+.small_1_column  .video_preview {@include breakpoint-small{ width: 96%; }}
+.small_2_columns .video_preview {@include breakpoint-small{ width: 46%; }}
+.small_3_columns .video_preview {@include breakpoint-small{ width: 28.67%; }}
+.small_4_columns .video_preview {@include breakpoint-small{ width: 21%; }}
+
+.medium_1_column  .video_preview {@include breakpoint-medium{ width: 96%; }}
+.medium_2_columns .video_preview {@include breakpoint-medium{ width: 46%; }}
+.medium_3_columns .video_preview {@include breakpoint-medium{ width: 28.67%; }}
+.medium_4_columns .video_preview {@include breakpoint-medium{ width: 21%; }}
+
+.large_1_column  .video_preview {@include breakpoint-large{ width: 96%; }}
+.large_2_columns .video_preview {@include breakpoint-large{ width: 46%; }}
+.large_3_columns .video_preview {@include breakpoint-large{ width: 28.67%; }}
+.large_4_columns .video_preview {@include breakpoint-large{ width: 21%; }}

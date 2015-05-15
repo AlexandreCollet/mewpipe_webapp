@@ -1,0 +1,123 @@
+#home{
+	@include relative;
+	@include size(height 90% min-height 500px width 100%);
+	@include box-sizing(border-box);
+	@include breakpoint-medium-large {
+		padding-top: 100px;
+	}
+
+	@include background-image(
+		linear-gradient(45deg, rgba(20,20,20,1) 50%, rgba(20,20,20,0) 50%),
+        linear-gradient(-45deg, rgba(20,20,20,1) 50%, rgba(20,20,20,0) 50%)
+    );
+    background-position: bottom center, bottom center;
+    background-size: 0.75rem 0.75rem, 0.75rem 0.75rem;
+    background-repeat: repeat-x;
+}
+
+#logo{
+	display: block;
+	width: 150px;
+	margin: 0 auto;
+}
+
+#search_form:not(.fixed){
+	
+	@include size(height 50px width 90%);
+	@include breakpoint-medium-large {
+		@include size(width 60%);
+	}
+	margin: $gutterSize*5 auto $gutterSize;
+	font-size: 0;
+
+}
+
+#search_label{
+	@include inline-block(top);
+	@include size(width 20% height 100%);
+	@include breakpoint-small-medium-large {
+		@include size(width 10%);
+	}
+	@include border-radius(3px 0 0 3px);
+	@include box-sizing(border-box);
+	padding:0 0 0 $gutterSize;
+	border:none;
+	background: white;
+	font-family: $font-icons;
+	font-size: 30px;
+	line-height: 50px;
+	@include multiple-colors(color);
+}
+#search_input{
+	@include inline-block(top);
+	@include size(width 60% height 100%);
+	@include breakpoint-small-medium-large {
+		@include size(width 80%);
+	}
+	@include box-sizing(border-box);
+	padding:0;border:none;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: $font-texts;
+	text-align: center;
+	line-height: 50px;
+	@include multiple-colors(color);
+	&:focus{outline-style: none;}
+}
+#search_submit{
+	@include inline-block(top);
+	@include size(width 20% height 100%);
+	@include breakpoint-small-medium-large {
+		@include size(width 10%);
+	}
+	@include border-radius(0 3px 3px 0);
+	@include box-sizing(border-box);
+	padding:0;border:none;
+	background: white;
+	font-family: $font-icons;
+	font-size: 30px;
+	line-height: 50px;
+	@include multiple-colors(color);
+	text-align: right;
+	padding-right:$gutterSize;
+	&:hover{cursor:pointer;}
+}
+
+#links{
+	text-align: center;
+	font-family: $font-texts;
+	font-size: 22px;
+	a { 
+		display: inline-block;
+		&:not(:last-child){margin-right:$gutterSize;}
+		color : $color-text;
+		text-decoration: none;
+	}
+}
+
+#scroll_indicator{
+	@include absolute(left 50% bottom $gutterSize*2);
+	@include size(width 40px height 70px);
+	margin-left: -20px;
+	margin-top: -35px;
+	@include box-shadow(inset 0 0 0 1px #fff);
+	@include border-radius(25px);
+	&:before{
+		content : "";
+		@include absolute(left 50%);
+		@include size(8px);
+		background: #fff;
+		margin-left: -4px;
+		top:8px;
+		@include border-radius(50%);
+		@include animation($name:scroll,$duration:1.5s,$iterationCount:"infinite");
+	}
+}
+
+@include keyframes(scroll){
+	0% { opacity:1; }
+	100% {
+		opacity: 0;
+		@include transform( translateY(46px) );
+	}
+}

@@ -1,0 +1,45 @@
+#suggestions{
+	background: $color-bg;
+	font-size: 0;
+	padding: $gutterSize*2 $gutterSize;
+}
+
+.listTitle{
+
+	@include relative;
+	@include size(width 100%);
+	margin-bottom: $gutterSize*2;
+	text-align: center;
+	.line{
+		@include multiple-colors(background);
+		width: 100%;
+		height:3px;
+		@include absolute;
+		top:50%;
+		margin-top:-2px;
+	}
+}
+
+#mostViewed,#mostShared{
+
+	@include box-sizing(border-box);
+
+	@include breakpoint-medium-large {
+		@include inline-block(top);
+		width: 50%;
+	}
+
+}
+#mostViewed{
+	@include breakpoint-medium-large{ padding-right: $gutterSize/2; }
+}
+#mostShared{
+	padding-top: $gutterSize*2;
+	@include breakpoint-medium-large{ 
+		padding: 0 0 0 $gutterSize/2; 
+	}
+}
+
+.video_preview:not(:last-child){
+	margin-bottom: $gutterSize;
+}
