@@ -1,3 +1,5 @@
+#body > div{ @include size(100%); }
+
 .container{
 	@include box-sizing(border-box);
 	min-height:100%;

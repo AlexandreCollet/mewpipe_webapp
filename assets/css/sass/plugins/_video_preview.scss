@@ -6,7 +6,7 @@
 	width: 96%;
 	@include breakpoint-small-medium-large{ width:98%; }
 	margin:2%;
-	@include breakpoint-small-medium-large{ margin:1% 2%; }
+	@include breakpoint-small-medium-large{ margin:1%; }
 	@include multiple-colors(background);
 	cursor:pointer;
 	img{
@@ -82,22 +82,22 @@
 	}
 }
 
-.tiny_1_column  .video_preview {@include breakpoint-tiny{ width: 94%; }}
-.tiny_2_columns .video_preview {@include breakpoint-tiny{ width: 44%; }}
-.tiny_3_columns .video_preview {@include breakpoint-tiny{ width: 26.67%; }}
-.tiny_4_columns .video_preview {@include breakpoint-tiny{ width: 19%; }}
+.tiny_1_column  .video_preview {@include breakpoint-tiny{ width: 96%; }}
+.tiny_2_columns .video_preview {@include breakpoint-tiny{ width: 46%; }}
+.tiny_3_columns .video_preview {@include breakpoint-tiny{ width: 28.67%; }}
+.tiny_4_columns .video_preview {@include breakpoint-tiny{ width: 21%; }}
 
-.small_1_column  .video_preview {@include breakpoint-small{ width: 96%; }}
-.small_2_columns .video_preview {@include breakpoint-small{ width: 46%; }}
-.small_3_columns .video_preview {@include breakpoint-small{ width: 28.67%; }}
-.small_4_columns .video_preview {@include breakpoint-small{ width: 21%; }}
+.small_1_column  .video_preview {@include breakpoint-small{ width: 98%; }}
+.small_2_columns .video_preview {@include breakpoint-small{ width: 48%; }}
+.small_3_columns .video_preview {@include breakpoint-small{ width: 31.33%; }}
+.small_4_columns .video_preview {@include breakpoint-small{ width: 23%; }}
 
-.medium_1_column  .video_preview {@include breakpoint-medium{ width: 96%; }}
-.medium_2_columns .video_preview {@include breakpoint-medium{ width: 46%; }}
-.medium_3_columns .video_preview {@include breakpoint-medium{ width: 28.67%; }}
-.medium_4_columns .video_preview {@include breakpoint-medium{ width: 21%; }}
+.medium_1_column  .video_preview {@include breakpoint-medium{ width: 98%; }}
+.medium_2_columns .video_preview {@include breakpoint-medium{ width: 48%; }}
+.medium_3_columns .video_preview {@include breakpoint-medium{ width: 31.33%; }}
+.medium_4_columns .video_preview {@include breakpoint-medium{ width: 23%; }}
 
-.large_1_column  .video_preview {@include breakpoint-large{ width: 96%; }}
-.large_2_columns .video_preview {@include breakpoint-large{ width: 46%; }}
-.large_3_columns .video_preview {@include breakpoint-large{ width: 28.67%; }}
-.large_4_columns .video_preview {@include breakpoint-large{ width: 21%; }}
+.large_1_column  .video_preview {@include breakpoint-large{ width: 98%; }}
+.large_2_columns .video_preview {@include breakpoint-large{ width: 48%; }}
+.large_3_columns .video_preview {@include breakpoint-large{ width: 31.33%; }}
+.large_4_columns .video_preview {@include breakpoint-large{ width: 23%; }}
