@@ -29,6 +29,8 @@
 		width: 50%;
 	}
 
+	> .ng-scope { display: inline; }
+
 }
 #mostViewed{
 	@include breakpoint-medium-large{ padding-right: $gutterSize/2; }

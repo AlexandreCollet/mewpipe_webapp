@@ -53,13 +53,10 @@
             <h2>Most Viewed</h2>
         </div>
 
-        <video-preview name="Les poissons" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="Le caca des canards c'est caca" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="faut pas manger" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="Arthour ! cuillère !" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="Les poissons" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="MECREANNNNN" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-
+        <div ng-repeat="video in home.videos.mostViewed">
+            <video-preview name="video.name" img="video.img"></video-preview>
+        </div>
+        
     </div>
 
     <div id="mostShared"  class="tiny_1_column small_2_columns medium_1_column large_2_columns">
@@ -68,13 +65,10 @@
             <div class="line"></div>
             <h2>Most Shared</h2>
         </div>
-
-        <video-preview name="Les poissons" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="Le caca des canards c'est caca" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="faut pas manger" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="Arthour ! cuillère !" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="Les poissons" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
-        <video-preview name="MECREANNNNN" img="//cdn.selz.com/plyr/1.0/poster.jpg" ></video-preview>
+        
+        <div ng-repeat="video in home.videos.mostShared">
+            <video-preview name="video.name" img="video.img"></video-preview>
+        </div>
 
     </div>
 

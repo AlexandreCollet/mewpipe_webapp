@@ -7,8 +7,8 @@ function videoPreview(){
 		templateUrl : '/app/directives/videoPreview.directive.html',
 		restrict    : 'EA',
 		scope       : {
-			name : '@name',
-			img  : '@img'
+			name : '=name',
+			img  : '=img'
 		}
 	}
 
