@@ -4,6 +4,7 @@ angular.module('mewpipe')
 function HomeController(){
 
 	var vm = this;
+
 	vm.videos = {
 		mostShared : [
 			{
@@ -57,6 +58,6 @@ function HomeController(){
 				img  : "http://lorempicsum.com/simpsons/400/225/3"
 			},
 		]
-	}
+	};
 
 }
