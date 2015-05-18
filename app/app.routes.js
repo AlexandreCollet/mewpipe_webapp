@@ -19,5 +19,11 @@ function configure($routeProvider) {
 			controllerAs : 'search'
 		})
 
+		.when('/videos/:id', {
+			templateUrl  : '/app/views/video_view.html',
+			controller   : 'VideoController',
+			controllerAs : 'video'
+		})
+
 		.otherwise({ redirectTo : '/' });
 }
