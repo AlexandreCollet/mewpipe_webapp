@@ -1,6 +1,6 @@
-#video_background{
+.video_background{
 	
-	@include fixed;
+	position: fixed !important;
 
 	z-index: -100;
 
@@ -9,7 +9,7 @@
 	@include breakpoint-tiny{display: none;}
 }
 
-#video_filter{
+.video_filter{
 	
 	@include fixed;
 
