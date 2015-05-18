@@ -17,5 +17,7 @@ function configure($routeProvider) {
 			templateUrl  : '/app/views/search.html',
 			controller   : 'SearchController',
 			controllerAs : 'search'
-		});
+		})
+
+		.otherwise({ redirectTo : '/' });
 }
