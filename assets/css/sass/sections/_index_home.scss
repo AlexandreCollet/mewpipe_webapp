@@ -21,68 +21,6 @@
 	margin: 0 auto;
 }
 
-#search_form:not(.fixed){
-	
-	@include size(height 50px width 90%);
-	@include breakpoint-medium-large {
-		@include size(width 60%);
-	}
-	margin: $gutterSize*5 auto $gutterSize;
-	font-size: 0;
-
-}
-
-#search_label{
-	@include inline-block(top);
-	@include size(width 20% height 100%);
-	@include breakpoint-small-medium-large {
-		@include size(width 10%);
-	}
-	@include border-radius(3px 0 0 3px);
-	@include box-sizing(border-box);
-	padding:0 0 0 $gutterSize;
-	border:none;
-	background: white;
-	font-family: $font-icons;
-	font-size: 30px;
-	line-height: 50px;
-	@include multiple-colors(color);
-}
-#search_input{
-	@include inline-block(top);
-	@include size(width 60% height 100%);
-	@include breakpoint-small-medium-large {
-		@include size(width 80%);
-	}
-	@include box-sizing(border-box);
-	padding:0;border:none;
-	font-size: 30px;
-	font-weight: bold;
-	font-family: $font-texts;
-	text-align: center;
-	line-height: 50px;
-	@include multiple-colors(color);
-	&:focus{outline-style: none;}
-}
-#search_submit{
-	@include inline-block(top);
-	@include size(width 20% height 100%);
-	@include breakpoint-small-medium-large {
-		@include size(width 10%);
-	}
-	@include border-radius(0 3px 3px 0);
-	@include box-sizing(border-box);
-	padding:0;border:none;
-	background: white;
-	font-family: $font-icons;
-	font-size: 30px;
-	line-height: 50px;
-	@include multiple-colors(color);
-	text-align: right;
-	padding-right:$gutterSize;
-	&:hover{cursor:pointer;}
-}
-
 #links{
 	text-align: center;
 	font-family: $font-texts;

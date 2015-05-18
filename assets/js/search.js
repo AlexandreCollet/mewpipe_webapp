@@ -3,17 +3,11 @@
 	/**
 	 * DEFAULT VARIABLES
 	 */
-	
-	var searchInput = document.getElementById('search_input');
 
 	var body      = document.getElementById('body');
 	var hamburger = document.getElementById('hamburger');
 
-	/**
-	 * MAIN
-	 */
 
-	 searchFocus();
 
 	/**
 	 * EVENTS
@@ -30,13 +24,5 @@
 		}
 	
 	});
-	
-	/**
-	 * FUNCTIONS
-	 */
-
-	function searchFocus(){
-	 	searchInput.focus();
-	}
 
 })();
