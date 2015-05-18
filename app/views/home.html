@@ -2,7 +2,7 @@
 <!-- - - - - - - - - - - - - - VIDEO BACKGROUND- - - - - - - - - -  -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
 
-<video-background name="cat2"></video-background>
+<video-background name="cat1"></video-background>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
 <!-- - - - - - - - - - - - - - - - - HOME- - - - - - - - - - - - -  -->
@@ -47,7 +47,7 @@
         </div>
 
         <div ng-repeat="video in home.videos.mostViewed">
-            <video-preview name="video.name" img="video.img"></video-preview>
+            <video-preview video="video"></video-preview>
         </div>
         
     </div>
@@ -60,7 +60,7 @@
         </div>
         
         <div ng-repeat="video in home.videos.mostShared">
-            <video-preview name="video.name" img="video.img"></video-preview>
+            <video-preview video="video"></video-preview>
         </div>
 
     </div>

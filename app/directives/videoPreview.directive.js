@@ -7,7 +7,7 @@ function videoPreview(){
 		templateUrl : '/app/directives/videoPreview.directive.html',
 		restrict    : 'E',
 		scope       : {	video : '='	}
-	}
+	};
 
 	return directive;
 
