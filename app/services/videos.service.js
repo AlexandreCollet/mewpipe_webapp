@@ -1,5 +1,5 @@
 angular
-	.module('videosService', ['ngResource'])
+	.module('mewpipe')
 	.factory('videosService', video);
 
 video.$inject = ['$resource'];
