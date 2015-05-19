@@ -1,6 +1,8 @@
 angular.module('mewpipe',[
 	
 	'ngRoute',
-	'ngResource'
+	'ngResource',
+
+	'infinite-scroll'
 
 ]);

@@ -1,7 +1,13 @@
 angular.module('mewpipe')
-	   .config(configure);
+	   .config(function(){
 
-
-function configure() {
-
-}
+	   })
+	   .constant("Config", {
+	   		server : {
+		   		url  : "http://10.0.0.102",
+		   		port : 8000,
+	   		},
+	   		requests : {
+	   			defaultLimit : 10
+	   		}
+	   });

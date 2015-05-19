@@ -17,11 +17,13 @@
         <h2>Search Results</h2>
     </div>
 	
-    <div ng-repeat="video in search.videos">
-        <video-preview video="video"></video-preview>
+    <div infinite-scroll="search.loadMore()" class="infiniteScroll">
+        <div ng-repeat="video in search.videos">
+            <video-preview video="video"></video-preview>
+        </div>
     </div>
 
-    <div id="videos_loader" class="loader"></div>
+    <div ng-show="search.busy" id="videos_loader" class="loader"></div>
 
 </div>
 
