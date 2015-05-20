@@ -1,0 +1,16 @@
+.ngdialog.ngdialog-theme-default{
+
+	.ngdialog-content{
+		background-color: lighten($color-bg,10%);
+		width:90%;
+		@include breakpoint-medium{ width: 80%; }
+		@include breakpoint-large { width: 50%; }
+	}
+
+	.ngdialog-close:before{
+		content: "x";
+		font-family: $font-icons;
+		@include multiple-colors(color);
+	}
+
+}

@@ -43,6 +43,10 @@ h3{
 	&.lighten {
 		h1,h2,h3,h4,h5,h6{background: lighten($color-bg,5%);}
 	}
+	&.popup {
+		margin-top: $gutterSize;
+		h1,h2,h3,h4,h5,h6{background: lighten($color-bg,10%);}
+	}
 
 	h3{
 		@include relative;

@@ -22,7 +22,10 @@ function videoJs(){
 	var directive = {
 		templateUrl : '/app/directives/videoJs.directive.html',
 		restrict    : 'EA',
-		link        : link
+		link        : link,
+		scope       : {
+			shareAction : '=shareAction'
+		}
 	}
 
 	return directive;
@@ -45,6 +48,8 @@ function videoJs(){
 
 		var shareButton = player.controlBar.addChild('button', {});
 		shareButton.addClass("vjs-share"); 
+		console.log(scope.shareAction)
+		shareButton.on('click',scope.shareAction);
 
 		_setVideoSizes(player,videoContainer);
 

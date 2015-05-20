@@ -2,7 +2,8 @@
 
 	width: 90%;
 	@include breakpoint-medium-large{ width: 60%; }	
-	margin: $gutterSize*5 auto $gutterSize;
+	&.full_width{ width: 100%; }
+	margin: $gutterSize auto $gutterSize;
 
 	.input{	margin-bottom: $gutterSize;	}
 
