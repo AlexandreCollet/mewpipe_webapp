@@ -2,24 +2,25 @@
 	
 	margin-top: $gutterSize;
 	font-size: 0;
+	text-align: center;
 	
-	.description, .scores, .author { 
+	.description, .views, .shares, .author { 
 		@include box-sizing(border-box);
-		@include inline-block(top); 
 		padding: $gutterSize;
 	}
 	
-	.description{ 
-		width:50%; 
+	.description{
+		width:60%; 
+		margin: 0 auto;
+		text-align: justify;
 		@include breakpoint-tiny-small-medium{ width : 100%; }
 	}
-	.scores, .author { 
-		width: 25%; 
-		@include breakpoint-tiny{ width: 100%; }
+	.views, .shares, .author { 
+		@include inline-block(top);
+		width: 33%; 
 		@include breakpoint-small-medium{ width : 50%; }
+		@include breakpoint-tiny{ width: 100%; }
 	}
-
-
 
 	.description{
 		font-size: 20px;
@@ -38,6 +39,29 @@
 		}
 		font-size: 40px;
 		margin-bottom: $gutterSize;
+
+	}
+
+	.rotate{
+		position : relative;
+		div{ 
+			position : absolute;
+			width: 100%;
+				opacity: 0;  
+			@include transition(opacity 1s);
+			&:nth-child(1){ 
+				@include animation($name : "superAwesomeAnimationOfEnriqueTheLlama",$duration : 20s,$iterationCount : "infinite");
+			}
+			&:nth-child(2){ 
+				@include animation($name : "superAwesomeAnimationOfEnriqueTheLlama",$duration : 20s,$delay:5s,$iterationCount : "infinite");
+			}
+			&:nth-child(3){
+				@include animation($name : "superAwesomeAnimationOfEnriqueTheLlama",$duration : 20s,$delay:10s,$iterationCount : "infinite");
+			}
+			&:nth-child(4){
+				@include animation($name : "superAwesomeAnimationOfEnriqueTheLlama",$duration : 20s,$delay:15s,$iterationCount : "infinite");
+			}
+		}
 	}
 	
 	.author{text-align: center;}
@@ -50,4 +74,13 @@
 		font-family: $font-titles; 
 		color:$color-text;
 	}
+}
+
+@include keyframes(superAwesomeAnimationOfEnriqueTheLlama){
+
+	0% { opacity : 0; }
+	5%  {opacity : 1}
+	20% { opacity : 1; }
+	25% { opacity : 0; }
+	100% { opacity : 0; }
 }

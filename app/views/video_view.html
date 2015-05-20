@@ -11,7 +11,7 @@
 
 <div class="container">
 
-	
+    
     <div class="listTitle lighten">
         <div class="line"></div>
         <h2>{{ video.video.title }}</h2>
@@ -31,20 +31,46 @@
 
             <p>{{ video.video.description }}</p>
         </div>
+            <a href="" class="button w20">Share</a>
 
-        <div class="scores">
+        <div class="views">
 
             <div class="listTitle lighten">
                 <div class="line"></div>
-                <h3>Statistics</h3>
+                <h3>Views</h3>
             </div>
 
             <div class="score">
-                <span>15620</span> views
+                total
+                <span>{{ video.video.total_view_count }}</span>
+            </div>
+
+            <div class="score rotate">
+                <div>daily<span>2530</span></div>
+                <div>weekly <span>25000</span></div>
+                <div>monthly <span>50000</span></div>
+                <div>yearly <span>55000</span></div>
+            </div>
+
+        </div>
+
+        <div class="shares">
+
+            <div class="listTitle lighten">
+                <div class="line"></div>
+                <h3>Shares</h3>
             </div>
 
             <div class="score">
-                <span>2530</span> shares
+                total
+                <span>{{ video.video.total_view_count }}</span>
+            </div>
+
+            <div class="score rotate">
+                <div>daily<span>2530</span></div>
+                <div>weekly <span>25000</span></div>
+                <div>monthly <span>50000</span></div>
+                <div>yearly <span>55000</span></div>
             </div>
 
         </div>
