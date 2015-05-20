@@ -22,6 +22,8 @@
 		@include breakpoint-tiny{ width: 100%; }
 	}
 
+	.shares, .views { height : 260px;}
+
 	.description{
 		font-size: 20px;
 		font-family: $font-texts;

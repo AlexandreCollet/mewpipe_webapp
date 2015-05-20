@@ -43,9 +43,12 @@ function videoJs(){
 			{ type: 'video/webm' , src: 'http://cdn.selz.com/plyr/1.0/movie.webm' }
 		]);
 
+		var shareButton = player.controlBar.addChild('button', {});
+		shareButton.addClass("vjs-share"); 
+
 		_setVideoSizes(player,videoContainer);
 
-		window.addEventListener('resize', function(){ _setVideoSizes(player); });
+		window.addEventListener('resize', function(){ _setVideoSizes(player,videoContainer); });
 
 		element.bind("$destroy", function(){ player.dispose(); });
 	}
