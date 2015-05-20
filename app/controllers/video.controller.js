@@ -16,7 +16,10 @@ function VideoController($routeParams, videosService, ngDialog){
 	vm.openShareModal = openShareModal;
 
 	function openShareModal(){
-		ngDialog.open({ template : 'app/views/partials/popup_share.html' })
+		ngDialog.open({ 
+			template   : 'app/views/partials/popup_share.html',
+			controller : 'ShareController'
+		});
 	}
 
 }
