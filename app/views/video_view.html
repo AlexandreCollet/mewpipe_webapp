@@ -46,10 +46,10 @@
             </div>
 
             <div class="score rotate">
-                <div>daily<span>2530</span></div>
-                <div>weekly <span>25000</span></div>
-                <div>monthly <span>50000</span></div>
-                <div>yearly <span>55000</span></div>
+                <div>daily<span>{{ video.video.daily_view_count }}</span></div>
+                <div>weekly <span>{{ video.video.weekly_view_count }}</span></div>
+                <div>monthly <span>{{ video.video.monthly_view_count }}</span></div>
+                <div>yearly <span>{{ video.video.yearly_view_count }}</span></div>
             </div>
 
         </div>
@@ -63,14 +63,14 @@
 
             <div class="score">
                 total
-                <span>{{ video.video.total_view_count }}</span>
+                <span>{{ video.video.total_share_count }}</span>
             </div>
 
             <div class="score rotate">
-                <div>daily<span>2530</span></div>
-                <div>weekly <span>25000</span></div>
-                <div>monthly <span>50000</span></div>
-                <div>yearly <span>55000</span></div>
+                <div>daily<span>{{ video.video.daily_share_count }}</span></div>
+                <div>weekly <span>{{ video.video.weekly_share_count }}</span></div>
+                <div>monthly <span>{{ video.video.monthly_share_count }}</span></div>
+                <div>yearly <span>{{ video.video.yearly_share_count }}</span></div>
             </div>
 
         </div>
