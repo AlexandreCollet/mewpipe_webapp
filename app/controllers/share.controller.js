@@ -23,6 +23,7 @@ function ShareController($scope,Config){
 		}
 
 		console.log(validEmails);
+
 	}
 
 	function onChange(index){
