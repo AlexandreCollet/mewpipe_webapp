@@ -5,17 +5,10 @@
 
 <form ng-submit="shareIt()" class="form full_width">
 	
-	<div class="input">
-		<label for="email_1">Email #1</label>
-		<input type="mail" name="email_1" id="email_1">
-	</div>
-	<div class="input">
-		<label for="email_2">Email #2</label>
-		<input type="mail" name="email_2" id="email_2">
-	</div>
-	<div class="input">
-		<label for="email_3">Email #3</label>
-		<input type="mail" name="email_3" id="email_3">
+
+	<div class="input" ng-repeat="email in emails track by $index">
+		<label for="email_{{ $index }}">Email #{{ $index }}</label>
+		<input type="email" id="email_{{ $index }}" ng-model="emails[$index]" ng-pattern="regexEmail" ng-change="onChange($index)">
 	</div>
 
     <div class="submit">
