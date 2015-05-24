@@ -1,47 +1,62 @@
 angular.module('mewpipe')
 	   .controller('ShareController', ShareController);
 
-ShareController.$inject = ['$scope','Config'];
+ShareController.$inject = ['$routeParams','$scope','videosService','Config'];
 
-function ShareController($scope,Config){
+function ShareController($routeParams,$scope,videosService,Config){
 
 	$scope.regexEmail = Config.regex.email;
 
-	$scope.destEmails  = new Array(1);
-	$scope.senderEmail = "";
+	$scope.dest_addresses = new Array(1);
+	$scope.sender_address = "";
 
 	$scope.shareIt  = shareIt;
 	$scope.onChange = onChange;
 
 	function shareIt(){
 		
-		var emailsLength    = $scope.destEmails.length;
-		var validDestEmails = [];
+		var emailsLength = $scope.dest_addresses.length;
+
+		var validSenderAddress = $scope.regexEmail.test($scope.sender_address) ? $scope.sender_address : "";
+		var validDestAddresses = [];
 
 		for(var i=0;i<emailsLength;i++){
-			if($scope.regexEmail.test($scope.destEmails[i])){
-				validDestEmails.push($scope.destEmails[i]);
+			if($scope.regexEmail.test($scope.dest_addresses[i])){
+				validDestAddresses.push($scope.dest_addresses[i]);
 			}
 		}
 
-		console.log(validDestEmails);
+		if(!validSenderAddress || validDestAddresses.length === 0){
+			return;
+		}
+
+		var share = new videosService({ id : $routeParams.id });
+
+		share.dest_addresses = validDestAddresses;
+		share.sender_address = validSenderAddress;
+		share.video_link     = "http://" + Config.domain + "/#/videos/" + $routeParams.id;
+
+		share.$share(function(){
+			$scope.closeThisDialog();
+		});
+
 	}
 
 	function onChange(index){
 
-		var emailsLength = $scope.destEmails.length;
-		if(index !== emailsLength - 1) return;
+		var destAddressesLength = $scope.dest_addresses.length;
+		if(index !== destAddressesLength - 1) return;
 
 
 		var addInput = true;
-		for(var i=0;i<emailsLength;i++){
-			if($scope.destEmails[i] === ""){
+		for(var i=0;i<destAddressesLength;i++){
+			if($scope.dest_addresses[i] === ""){
 				addInput = false;
 			}
 		}
 
 		if(addInput){
-			$scope.destEmails.push(undefined);
+			$scope.dest_addresses.push(undefined);
 		}
 	}
 

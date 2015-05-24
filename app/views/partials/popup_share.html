@@ -9,13 +9,13 @@
 	<p>Your email :</p>
 
 	<div class="input">
-		<input type="email" ng-model="senderEmail" ng-pattern="regexEmail">
+		<input type="email" ng-model="sender_address" ng-pattern="regexEmail">
 	</div>
 
 	<p>Emails of your friends :</p>
 	
-	<div class="input" ng-repeat="destEmail in destEmails track by $index">
-		<input type="email" ng-model="destEmails[$index]" ng-pattern="regexEmail" ng-change="onChange($index)">
+	<div class="input" ng-repeat="destEmail in dest_addresses track by $index">
+		<input type="email" ng-model="dest_addresses[$index]" ng-pattern="regexEmail" ng-change="onChange($index)">
 	</div>
 
     <div class="submit">
