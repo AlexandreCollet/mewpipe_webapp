@@ -20,7 +20,7 @@ function ShareController($scope,Config){
 
 		for(var i=0;i<emailsLength;i++){
 			if($scope.regexEmail.test($scope.destEmails[i])){
-				validEmails.push($scope.destEmails[i]);
+				validDestEmails.push($scope.destEmails[i]);
 			}
 		}
 
