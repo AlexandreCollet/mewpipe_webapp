@@ -3,12 +3,19 @@
     <h2>Share</h2>
 </div>
 
+
 <form ng-submit="shareIt()" class="form full_width">
 	
+	<p>Your email :</p>
 
-	<div class="input" ng-repeat="email in emails track by $index">
-		<label for="email_{{ $index }}">Email #{{ $index }}</label>
-		<input type="email" id="email_{{ $index }}" ng-model="emails[$index]" ng-pattern="regexEmail" ng-change="onChange($index)">
+	<div class="input">
+		<input type="email" ng-model="senderEmail" ng-pattern="regexEmail">
+	</div>
+
+	<p>Emails of your friends :</p>
+	
+	<div class="input" ng-repeat="destEmail in destEmails track by $index">
+		<input type="email" ng-model="destEmails[$index]" ng-pattern="regexEmail" ng-change="onChange($index)">
 	</div>
 
     <div class="submit">

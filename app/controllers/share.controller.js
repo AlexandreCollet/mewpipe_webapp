@@ -6,41 +6,42 @@ ShareController.$inject = ['$scope','Config'];
 function ShareController($scope,Config){
 
 	$scope.regexEmail = Config.regex.email;
-	$scope.emails     = new Array(1);
 
-	$scope.shareIt = shareIt;
-	$scope.onChange  = onChange;
+	$scope.destEmails  = new Array(1);
+	$scope.senderEmail = "";
+
+	$scope.shareIt  = shareIt;
+	$scope.onChange = onChange;
 
 	function shareIt(){
 		
-		var emailsLength = $scope.emails.length;
-		var validEmails  = [];
+		var emailsLength    = $scope.destEmails.length;
+		var validDestEmails = [];
 
 		for(var i=0;i<emailsLength;i++){
-			if($scope.regexEmail.test($scope.emails[i])){
-				validEmails.push($scope.emails[i]);
+			if($scope.regexEmail.test($scope.destEmails[i])){
+				validEmails.push($scope.destEmails[i]);
 			}
 		}
 
-		console.log(validEmails);
-
+		console.log(validDestEmails);
 	}
 
 	function onChange(index){
 
-		var emailsLength = $scope.emails.length;
+		var emailsLength = $scope.destEmails.length;
 		if(index !== emailsLength - 1) return;
 
 
 		var addInput = true;
 		for(var i=0;i<emailsLength;i++){
-			if($scope.emails[i] === ""){
+			if($scope.destEmails[i] === ""){
 				addInput = false;
 			}
 		}
 
 		if(addInput){
-			$scope.emails.push(undefined);
+			$scope.destEmails.push(undefined);
 		}
 	}
 
