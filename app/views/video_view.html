@@ -14,10 +14,10 @@
     
     <div class="listTitle lighten">
         <div class="line"></div>
-        <h2>{{ video.video.title }}</h2>
+        <h2>{{ video.title }}</h2>
     </div>
 
-    <video-js share-action="video.openShareModal"></video-js>
+    <video-js share-action="openShareModal"></video-js>
 
     <div class="video_informations">
 
@@ -29,7 +29,7 @@
                 <h3>Description</h3>
             </div>
 
-            <p>{{ video.video.description }}</p>
+            <p>{{ video.description }}</p>
         </div>
             <a href="" class="button w20">Share</a>
 
@@ -42,14 +42,14 @@
 
             <div class="score">
                 total
-                <span>{{ video.video.views_statistics.total }}</span>
+                <span>{{ video.views_statistics.total }}</span>
             </div>
 
             <div class="score rotate">
-                <div>daily<span>{{ video.video.views_statistics.daily }}</span></div>
-                <div>weekly <span>{{ video.video.views_statistics.weekly }}</span></div>
-                <div>monthly <span>{{ video.video.views_statistics.monthly }}</span></div>
-                <div>yearly <span>{{ video.video.views_statistics.yearly }}</span></div>
+                <div>daily<span>{{ video.views_statistics.daily }}</span></div>
+                <div>weekly <span>{{ video.views_statistics.weekly }}</span></div>
+                <div>monthly <span>{{ video.views_statistics.monthly }}</span></div>
+                <div>yearly <span>{{ video.views_statistics.yearly }}</span></div>
             </div>
 
         </div>
@@ -63,14 +63,14 @@
 
             <div class="score">
                 total
-                <span>{{ video.video.shares_statistics.total }}</span>
+                <span>{{ video.shares_statistics.total }}</span>
             </div>
 
             <div class="score rotate">
-                <div>daily<span>{{ video.video.shares_statistics.daily }}</span></div>
-                <div>weekly <span>{{ video.video.shares_statistics.weekly }}</span></div>
-                <div>monthly <span>{{ video.video.shares_statistics.monthly }}</span></div>
-                <div>yearly <span>{{ video.video.shares_statistics.yearly }}</span></div>
+                <div>daily<span>{{ video.shares_statistics.daily }}</span></div>
+                <div>weekly <span>{{ video.shares_statistics.weekly }}</span></div>
+                <div>monthly <span>{{ video.shares_statistics.monthly }}</span></div>
+                <div>yearly <span>{{ video.shares_statistics.yearly }}</span></div>
             </div>
 
         </div>

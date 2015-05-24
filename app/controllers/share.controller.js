@@ -4,7 +4,6 @@ angular.module('mewpipe')
 ShareController.$inject = ['$routeParams','$scope','videosService','Config'];
 
 function ShareController($routeParams,$scope,videosService,Config){
-
 	$scope.regexEmail = Config.regex.email;
 
 	$scope.dest_addresses = new Array(1);
@@ -36,7 +35,8 @@ function ShareController($routeParams,$scope,videosService,Config){
 		share.sender_address = validSenderAddress;
 		share.video_link     = "http://" + Config.domain + "/#/videos/" + $routeParams.id;
 
-		share.$share(function(){
+		share.$share(function(video){
+			$scope.$parent.video = video;
 			$scope.closeThisDialog();
 		});
 

@@ -21,8 +21,7 @@ function configure($routeProvider) {
 
 		.when('/videos/:id', {
 			templateUrl  : '/app/views/video_view.html',
-			controller   : 'VideoController',
-			controllerAs : 'video'
+			controller   : 'VideoController'
 		})
 
 		.otherwise({ redirectTo : '/' });

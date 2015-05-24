@@ -1,24 +1,23 @@
 angular.module('mewpipe')
 	   .controller('VideoController', VideoController);
 
-VideoController.$inject = ['$routeParams','videosService', 'ngDialog'];
+VideoController.$inject = ['$routeParams','$scope','videosService', 'ngDialog'];
 
-function VideoController($routeParams, videosService, ngDialog){
-
-	var vm = this;
+function VideoController($routeParams, $scope, videosService, ngDialog){
 
 	var videoId = $routeParams.id;
 
-	vm.video = videosService.findOne({
+	$scope.video = videosService.findOne({
 		id : videoId
 	});
 
-	vm.openShareModal = openShareModal;
+	$scope.openShareModal = openShareModal;
 
 	function openShareModal(){
 		ngDialog.open({ 
 			template   : 'app/views/partials/popup_share.html',
-			controller : 'ShareController'
+			controller : 'ShareController',
+			scope      : $scope
 		});
 	}
 
