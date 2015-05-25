@@ -12,6 +12,14 @@ function video($resource,Config) {
 			offset : 0 
 		} },
 		findOne : { method : 'GET' },
+		findMostShared : { method : 'GET', params: {
+			limit: 6,
+			ordering : 'weekly_share_count'
+		}},
+		findMostPlayed : { method : 'GET', params: {
+			limit: 6,
+			ordering: 'weekly_view_count'
+		}},
 		share : {
 			method : 'POST',
 			url    : Config.server.url + ':' + Config.server.port + '/api/videos/:id/share'
