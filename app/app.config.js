@@ -10,7 +10,7 @@ angular.module('mewpipe')
 	   		},
 	   		regex : {
 	   			email : new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i'),
-	   			password : new RegExp('^(?=.{6,}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*')
+	   			password : new RegExp('^(?=.{6,}$)(?=.*[a-z])(?=.*[0-9]).*')
 	   		}
 	   })
 	   .config(function(toastrConfig){
