@@ -24,7 +24,8 @@ function videoJs(){
 		restrict    : 'EA',
 		link        : link,
 		scope       : {
-			shareAction : '=shareAction'
+			shareAction  : '=',
+			video : '='
 		}
 	}
 
@@ -40,11 +41,11 @@ function videoJs(){
 		var videoElement = element.context.getElementsByTagName('video')[0];
 
 		var player = videojs(videoElement, videoOptions);
-		
-		player.src([
-			{ type: 'video/mp4'  , src: 'http://cdn.selz.com/plyr/1.0/movie.mp4'  },
-			{ type: 'video/webm' , src: 'http://cdn.selz.com/plyr/1.0/movie.webm' }
-		]);
+
+		//
+		scope.video.$promise.then(function(v){
+			player.src(v.file_urls);
+		})
 
 		var shareButton = player.controlBar.addChild('button', {});
 		shareButton.addClass("vjs-share"); 
