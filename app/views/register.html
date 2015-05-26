@@ -14,7 +14,7 @@
 	
     <div class="listTitle lighten">
         <div class="line"></div>
-        <h2>Login</h2>
+        <h2>Register</h2>
     </div>
 
     <form id="login_form" class="form" ng-submit="onSubmit()">
@@ -23,10 +23,20 @@
             <label for="login_input_username">Username</label>
             <input type="text" ng-model="username" id="login_input_username">
         </div>
+
+        <div class="input">
+            <label for="login_input_email">Email</label>
+            <input type="email" ng-model="email" id="login_input_email">
+        </div>
         
         <div class="input">
             <label for="login_input_password">Password</label>
             <input type="password" ng-model="password" id="login_input_password">
+        </div>
+
+        <div class="input">
+            <label for="login_input_confirmation">Confirmation</label>
+            <input type="password" ng-model="confirmation" id="login_input_confirmation">
         </div>
         
         <div class="submit">
