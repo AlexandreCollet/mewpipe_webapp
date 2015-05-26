@@ -1,0 +1,20 @@
+#toast-container.toast-bottom-right{
+
+	@include breakpoint-tiny-small {
+		left:12px;
+	}
+
+	.toast{
+		@include breakpoint-tiny-small {
+			width: 100%;
+		}
+		box-shadow:none;
+		font-family: $font-texts;
+	}
+
+	.toast-close-button{
+		opacity: 1;
+	}
+
+	.toast-title{ margin-bottom: 5px; }
+}

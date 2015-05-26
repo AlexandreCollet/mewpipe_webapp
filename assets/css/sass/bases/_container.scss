@@ -1,4 +1,4 @@
-#body > div{ @include size(100%); }
+#body > div.ng-scope{ @include size(100%); }
 
 .container{
 	@include box-sizing(border-box);

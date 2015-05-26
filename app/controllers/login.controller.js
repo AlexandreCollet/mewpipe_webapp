@@ -1,9 +1,9 @@
 angular.module('mewpipe')
        .controller('LoginController', LoginController);
 
-LoginController.$inject = ['$scope'];
+LoginController.$inject = ['$scope','toastr'];
 
-function LoginController($scope){
+function LoginController($scope,toastr){
 
 	$scope.username = "";
 	$scope.password = "";
@@ -11,9 +11,7 @@ function LoginController($scope){
 	$scope.onSubmit = onSubmit;
 
 	function onSubmit(){
-		console.log('Not implemented');
-		console.log('username : ' + $scope.username);
-		console.log('password : ' + $scope.password);
+		toastr.warning('Not implemented yet','Warning');
 	}
 	
 }

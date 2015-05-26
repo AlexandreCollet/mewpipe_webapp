@@ -4,6 +4,7 @@ angular.module('mewpipe',[
 	'ngResource',
 
 	'infinite-scroll',
-	'ngDialog'
+	'ngDialog',
+	'toastr'
 
 ]);
