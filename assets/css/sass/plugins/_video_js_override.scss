@@ -1,6 +1,14 @@
 .video-js{ margin: 0 auto; }
 
 .vjs-sublime-skin{
+		
+	overflow: hidden;
+
+	.vjs-poster {
+		@include size(102%);
+		margin-top : -1%;
+		margin-left: -1%;
+	}
 
 	.vjs-progress-control{
 		left: 120px;
