@@ -8,10 +8,23 @@ function LoginController($scope,toastr){
 	$scope.username = "";
 	$scope.password = "";
 
+	$scope.errors = [];
+
 	$scope.onSubmit = onSubmit;
 
-	function onSubmit(){
-		toastr.warning('Not implemented yet','Warning');
+	function onSubmit(isValid){
+
+		$scope.errors = [];
+
+		if(!isValid){
+
+			if(!$scope.username) $scope.errors.push('Username required');
+			if(!$scope.password) $scope.errors.push('Password required');
+
+			return;
+		}
+
+		toastr.success('Valid','Success');
 	}
 	
 }
