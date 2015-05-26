@@ -40,5 +40,19 @@
 		font-family: $font-texts;
 		color:white;
 		&:hover{ cursor:pointer; }
+		&:disabled{ opacity: 0.5;}
 	}
+
+	.error{ 
+		@include box-sizing(border-box);
+		display: block;
+		background-color: red;
+		color:white;
+		font-family: $font-texts;
+		font-size: 18px;
+		@include border-radius(3px);
+		margin-bottom: $gutterSize;
+		padding:$gutterSize;
+	}
+
 }

@@ -17,30 +17,32 @@
         <h2>Register</h2>
     </div>
 
-    <form id="login_form" class="form" ng-submit="onSubmit()">
-        
+    <form name="loginForm" class="form" ng-submit="onSubmit(loginForm.$valid)" novalidate>
+
+        <div class="error" ng-repeat="error in errors">{{ error }}</div>
+
         <div class="input">
             <label for="login_input_username">Username</label>
-            <input type="text" ng-model="username" id="login_input_username">
+            <input type="text" ng-model="username" id="login_input_username" required>
         </div>
 
         <div class="input">
             <label for="login_input_email">Email</label>
-            <input type="email" ng-model="email" id="login_input_email">
+            <input type="email" ng-model="email" ng-pattern="regexEmail" id="login_input_email" required>
         </div>
         
         <div class="input">
             <label for="login_input_password">Password</label>
-            <input type="password" ng-model="password" id="login_input_password">
+            <input type="password" ng-model="password" id="login_input_password" ng-pattern="regexPassword" required>
         </div>
 
         <div class="input">
             <label for="login_input_confirmation">Confirmation</label>
-            <input type="password" ng-model="confirmation" id="login_input_confirmation">
+            <input type="password" ng-model="confirmation" id="login_input_confirmation" ng-pattern="password" required>
         </div>
         
         <div class="submit">
-            <button type="submit" id="login_submit" class="submit">Login</button>
+            <button type="submit" id="login_submit" class="submit" ng-disabled="loginForm.$invalid">Login</button>
         </div>
     
     </form>
