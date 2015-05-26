@@ -13,6 +13,11 @@ function configure($routeProvider) {
 			controllerAs : 'home'
 		})
 
+		.when('/login', {
+			templateUrl  : '/app/views/login.html',
+			controller   : 'LoginController'
+		})
+
 		.when('/search/:string', {
 			templateUrl  : '/app/views/results.html',
 			controller   : 'ResultsController',

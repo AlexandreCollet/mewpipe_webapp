@@ -1,0 +1,38 @@
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - HEADER- - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+
+<div ng-include="'/app/views/partials/header.html'"></div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - RESULTS - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+
+<div id="results" class="container tiny_1_column small_2_columns medium_2_columns large_3_columns">
+
+	
+    <div class="listTitle lighten">
+        <div class="line"></div>
+        <h2>Login</h2>
+    </div>
+
+    <form id="login_form" class="form" ng-submit="onSubmit()">
+        
+        <div class="input">
+            <label for="login_input_username">Username</label>
+            <input type="text" ng-model="username" id="login_input_username">
+        </div>
+        
+        <div class="input">
+            <label for="login_input_password">Password</label>
+            <input type="password" ng-model="password" id="login_input_password">
+        </div>
+        
+        <div class="submit">
+            <button type="submit" id="login_submit" class="submit">Login</button>
+        </div>
+    
+    </form>
+
+</div>
