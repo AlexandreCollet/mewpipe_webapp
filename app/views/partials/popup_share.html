@@ -4,12 +4,14 @@
 </div>
 
 
-<form ng-submit="shareIt()" class="form full_width">
+<form name="shareForm" ng-submit="shareIt()" class="form full_width" novalidate>
+
+	<div class="error" ng-repeat="error in errors">{{ error }}</div>
 	
 	<p>Your email :</p>
 
 	<div class="input">
-		<input type="email" ng-model="sender_address" ng-pattern="regexEmail">
+		<input type="email" ng-model="sender_address" ng-pattern="regexEmail" required>
 	</div>
 
 	<p>Emails of your friends :</p>
@@ -19,7 +21,7 @@
 	</div>
 
     <div class="submit">
-        <button type="submit" id="login_submit" class="submit">Share</button>
+        <button type="submit" id="share_submit" class="submit" ng-disabled="shareForm.$invalid">Share</button>
     </div>
 
 </form>

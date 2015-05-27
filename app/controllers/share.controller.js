@@ -9,10 +9,14 @@ function ShareController($routeParams,$scope,videosService,Config){
 	$scope.dest_addresses = new Array(1);
 	$scope.sender_address = "";
 
+	$scope.errors = [];
+
 	$scope.shareIt  = shareIt;
 	$scope.onChange = onChange;
 
 	function shareIt(){
+
+		$scope.errors = [];
 		
 		var emailsLength = $scope.dest_addresses.length;
 
@@ -26,6 +30,10 @@ function ShareController($routeParams,$scope,videosService,Config){
 		}
 
 		if(!validSenderAddress || validDestAddresses.length === 0){
+
+			if(!validSenderAddress) $scope.errors.push('Your email is required');
+			if(validDestAddresses.length === 0) $scope.errors.push('At least one email to send is required');
+			
 			return;
 		}
 
