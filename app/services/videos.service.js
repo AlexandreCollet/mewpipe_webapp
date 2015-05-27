@@ -14,11 +14,11 @@ function video($resource,Config) {
 		findOne : { method : 'GET' },
 		findMostShared : { method : 'GET', params: {
 			limit: 6,
-			ordering : '-weekly_share_count'
+			ordering : '-weekly_share'
 		}},
 		findMostPlayed : { method : 'GET', params: {
 			limit: 6,
-			ordering: '-weekly_view_count'
+			ordering: '-weekly_view'
 		}},
 		share : {
 			method : 'POST',
