@@ -2,8 +2,8 @@ angular.module('mewpipe')
 	   .constant("Config", {
 	   		domain : "mewpipe.ang",
 	   		server : {
-		   		url  : "http://10.0.0.102",
-		   		port : 8000,
+		   		url  : "http://10.19.16.214",
+		   		port : 8080,
 	   		},
 	   		requests : {
 	   			defaultLimit : 10
