@@ -6,6 +6,7 @@ video.$inject = ['$resource','Config'];
 
 function video($resource,Config) {
 	return $resource( Config.server.url + ':' + Config.server.port + '/api/videos/:id', { id : '@id'}, {
+		update : { method : 'PUT' },
 		search  : { method : 'GET', params: {
 			s      : "",
 			limit  : Config.requests.defaultLimit, 
