@@ -68,7 +68,7 @@ function UploadController($scope,videosService,Upload,Config){
 	function editVideo(isValid){
 
 		if(!isValid) return;
-
+		$scope.video.tags = [];
 		videosService.update({id : $scope.video.uid }, $scope.video);
 	}
 

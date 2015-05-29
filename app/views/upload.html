@@ -9,21 +9,22 @@
 <!-- - - - - - - - - - - - - - - - RESULTS - - - - - - - - - - - -  -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
 
-<div class="container" ngf-drop ng-model="file" ngf-accept="validateFile($file)">
+<div id="uploadPage" class="container" ngf-drop ng-model="file" ngf-accept="validateFile($file)">
 
 	
     <div class="listTitle lighten">
         <div class="line"></div>
         <h2>Upload</h2>
     </div>
-
+    
     <div class="error" ng-repeat="error in errors">{{ error }}</div>
 
     <div id="file_selector">
         <div ngf-select ng-model="file" ngf-accept="validateFile($file)">{{ statusMessages[status] }}</div>
         <div class="progression" style="width:{{ uploadProgression }}%"></div>
     </div>
-            
+    <p ng-show="status >= 1 && status <= 2">Don't leave this page</p>
+
     <form name="videoForm" class="form" ng-submit="editVideo(videoForm.$valid)" ng-show="status >= 1">
         
         <div class="error" ng-repeat="error in errors">{{ error }}</div>
@@ -36,6 +37,11 @@
         <div class="input">
             <label for="video_description">Description</label>
             <textarea id="video_description" ng-model="video.description"></textarea>
+        </div>
+
+        <div class="input">
+            <label for="video_description">Tags</label>
+            <tags-input ng-model="video.tags"></tags-input>
         </div>
 
         <div class="submit">

@@ -30,6 +30,8 @@
             <label for="login_input_password">Password</label>
             <input type="password" ng-model="password" id="login_input_password" required>
         </div>
+
+        <tags-input ng-model="video.tags"></tags-input>
         
         <div class="submit">
             <button type="submit" id="login_submit" class="submit" ng-disabled="loginForm.$invalid">Login</button>

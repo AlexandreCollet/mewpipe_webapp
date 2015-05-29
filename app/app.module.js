@@ -7,5 +7,6 @@ angular.module('mewpipe',[
 	'ngDialog',
 	'toastr',
 	'ngFileUpload',
+	'ngTagsInput',
 
 ]);
