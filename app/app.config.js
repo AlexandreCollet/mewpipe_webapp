@@ -9,15 +9,22 @@ angular.module('mewpipe')
 	   			defaultLimit : 10
 	   		},
 	   		regex : {
-	   			email : new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i'),
-	   			password : new RegExp('^(?=.{6,}$)(?=.*[a-z])(?=.*[0-9]).*')
+	   			email    : new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i'),
+	   			password : new RegExp('^(?=.{6,}$)(?=.*[a-z])(?=.*[0-9]).*'),
+	   			video    : new RegExp('^video\/')
+	   		},
+	   		video : {
+	   			titleMaxLength : 40,
+	   			maxSize        : 524288000
 	   		}
 	   })
-	   .config(function(toastrConfig){
+	   .config(function(toastrConfig,$resourceProvider){
 
 	   		angular.extend(toastrConfig, {
 	   			positionClass : 'toast-bottom-right',
 	   			closeButton   : true,
 	   		});
+
+	   		$resourceProvider.defaults.stripTrailingSlashes = false;
 
 	   });

@@ -5,6 +5,7 @@ angular.module('mewpipe',[
 
 	'infinite-scroll',
 	'ngDialog',
-	'toastr'
+	'toastr',
+	'ngFileUpload',
 
 ]);
