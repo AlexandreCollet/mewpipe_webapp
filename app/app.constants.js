@@ -16,10 +16,22 @@ angular.module('mewpipe')
 	   		video : {
 	   			titleMaxLength : 40,
 	   			maxSize        : 524288000,
-	   			policies       : {
-	   				"public"       : "Public (Available to anybody)",
-	   				"private_link" : "Private Link (Available to anybody unauthenticated with the link)",
-	   				"private"      : "Private (Available only to authenticated users)"
-	   			}
+	   			privacyOptions : [
+	   				{
+	   					value   : "public",
+	   					label   : "Public (Available to anybody)",
+	   					default : true,
+	   				},
+	   				{
+	   					value   : "private_link",
+	   					label   : "Private Link (Available to anybody unauthenticated with the link)",
+	   					default : false,
+	   				},
+	   				{
+	   					value   : "private",
+	   					label   : "Private (Available only to authenticated users)",
+	   					default : false,
+	   				},
+	   			]
 	   		}
 	   });

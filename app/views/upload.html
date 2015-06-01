@@ -37,8 +37,10 @@
         </div>
 
         <div class="input">
-            <label for="video_policy">Policy</label>
-            <select id="video_policy" ng-model="video.policy" ng-options="policy for (name,policy) in policies"></select>
+            <label for="video_privacy">Privacy</label>
+            <select id="video_privacy" ng-model="video.privacy">
+                <option value="{{ privacy.value }}" ng-repeat="privacy in privacyOptions" ng-selected="privacy.default">{{ privacy.label }}</option>
+            </select>
         </div>
 
         <div class="input">
