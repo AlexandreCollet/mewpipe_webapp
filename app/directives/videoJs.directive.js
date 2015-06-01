@@ -45,6 +45,7 @@ function videoJs(){
 		//
 		scope.video.$promise.then(function(v){
 			player.src(v.file_urls);
+			player.poster(v.thumbnail_url);
 		})
 
 		var shareButton = player.controlBar.addChild('button', {});
