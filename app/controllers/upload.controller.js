@@ -6,6 +6,7 @@ UploadController.$inject = ['$scope','videosService','Upload','toastr','Config']
 function UploadController($scope,videosService,Upload,toastr,Config){
 
 	$scope.titleMaxLength = Config.video.titleMaxLength;
+	$scope.policies       = Config.video.policies;
 
 	$scope.statusMessages = [
 		"Select or drag your video",

@@ -15,7 +15,12 @@ angular.module('mewpipe')
 	   		},
 	   		video : {
 	   			titleMaxLength : 40,
-	   			maxSize        : 524288000
+	   			maxSize        : 524288000,
+	   			policies       : {
+	   				"public"       : "Public (Available to anybody)",
+	   				"private_link" : "Private Link (Available to anybody unauthenticated with the link)",
+	   				"private"      : "Private (Available only to authenticated users)"
+	   			}
 	   		}
 	   })
 	   .config(function(toastrConfig,$resourceProvider){

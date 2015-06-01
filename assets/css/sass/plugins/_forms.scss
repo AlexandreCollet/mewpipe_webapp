@@ -26,6 +26,20 @@
 		&:not([type=password]){ font-family: $font-texts; }
 	}
 
+	select{
+		@include box-sizing(border-box);
+		display: block;
+		width: 100%;height :50px;
+		padding: 0 $gutterSize;
+		line-height: 50px;
+		font-size: 20px;
+		border:none;
+		&:focus{outline-style: none;}
+
+		option {
+			&:focus{outline-style: none;}
+		}
+	}
 	textarea{
 		@include box-sizing(border-box);
 		display: block;
