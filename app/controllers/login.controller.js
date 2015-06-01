@@ -8,18 +8,14 @@ function LoginController($scope,toastr){
 	$scope.username = "";
 	$scope.password = "";
 
-	$scope.errors = [];
-
 	$scope.onSubmit = onSubmit;
 
 	function onSubmit(isValid){
 
-		$scope.errors = [];
-
 		if(!isValid){
 
-			if(!$scope.username) $scope.errors.push('Username required');
-			if(!$scope.password) $scope.errors.push('Password required');
+			if(!$scope.username) toastr.error('Username required','Validation error');
+			if(!$scope.password) toastr.error('Password required','Validation error');
 
 			return;
 		}

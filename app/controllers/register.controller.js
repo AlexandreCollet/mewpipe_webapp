@@ -13,22 +13,18 @@ function RegisterController($scope,toastr,Config){
 	$scope.password     = "";
 	$scope.confirmation = "";
 
-	$scope.errors = [];
-
 	$scope.onSubmit = onSubmit;
 
 	function onSubmit(isValid){
 
-		$scope.errors = [];
-
 		if(!isValid){
 
-			if(!$scope.username) $scope.errors.push('Username required');
+			if(!$scope.username) toastr.error('Username required','Validation error');
 
-			if(!$scope.regexEmail.test($scope.email))       $scope.errors.push('Invalid email');
-			if(!$scope.regexPassword.test($scope.password)) $scope.errors.push('Your password must contain minimum 6 characters, upercase and lowercase letters and at least one number');
+			if(!$scope.regexEmail.test($scope.email))       toastr.error('Invalid email','Validation error');
+			if(!$scope.regexPassword.test($scope.password)) toastr.error('Your password must contain minimum 6 characters, letters and at least one number','Validation error');
 
-			if($scope.password !== $scope.confirmation) $scope.errors.push('Passwords missmatch');
+			if($scope.password !== $scope.confirmation) toastr.error('Passwords missmatch','Validation error');
 			return;
 		}
 
