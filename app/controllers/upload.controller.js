@@ -18,6 +18,7 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 	$scope.status = 0; 
 	$scope.file   = null;
 	$scope.video  = null;
+	$scope.tags   = [];
 	$scope.uploadProgression = 0;
 
 	$scope.validateFile = validateFile;
@@ -27,6 +28,22 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 		if($scope.status !== 0 || !$scope.file || $scope.file.length == 0 || !validateFile($scope.file[0])) return;
 		$scope.status = 1;
 		create($scope.file[0]);
+	});
+
+	$scope.$watchCollection('tags',function(newValues){
+		if(!$scope.video) return;
+		$scope.video.tags = [];
+		for(var i=0,l=newValues.length;i<l;i++){
+			$scope.video.tags.push(newValues[i].text);
+		}
+	});
+
+	$scope.$watchCollection('video.tags',function(newValues){
+		if(!$scope.video) return;
+		$scope.tags = [];
+		for(var i=0,l=newValues.length;i<l;i++){
+			$scope.tags.push({ text : newValues[i] });
+		}
 	});
 
 	function create(file){
