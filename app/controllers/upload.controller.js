@@ -78,6 +78,9 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 			$scope.uploadProgression = parseInt(100.0 * event.loaded / event.total);
 		}).success(function(data, status, headers, config){
 			$scope.status = 3;
+			videosService.findOne({id : $scope.video.uid}).$promise.then(function(video){
+				$scope.video = video;
+			})
 		}).error(function(){
 			$scope.status = 4;
 		});
@@ -90,6 +93,7 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 
 		videosService.update({id : $scope.video.uid }, $scope.video)
 			.$promise.then(function(video){
+				toastr.success('Video edited','Success');
 				$scope.video = video;
 			});
 	}
