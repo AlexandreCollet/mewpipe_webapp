@@ -37,13 +37,13 @@
         </div>
 
         <div class="input">
-            <label for="video_description">Tags</label>
-            <tags-input ng-model="video.tags"></tags-input>
+            <label for="video_policy">Policy</label>
+            <select id="video_policy" ng-model="video.policy" ng-options="policy for (name,policy) in policies"></select>
         </div>
 
         <div class="input">
-            <label for="video_policy">Policy</label>
-            <select id="video_policy" ng-model="video.policy" ng-options="policy for (name,policy) in policies"></select>
+            <label for="video_description">Tags</label>
+            <tags-input ng-model="video.tags"></tags-input>
         </div>
 
         <div class="submit">
