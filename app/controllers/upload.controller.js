@@ -124,8 +124,6 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 			}
 		}
 
-		
-
 		return isValid;
 	}
 

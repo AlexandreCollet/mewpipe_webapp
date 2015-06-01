@@ -9,9 +9,16 @@
 	@include breakpoint-small-medium-large{ margin:1%; }
 	@include multiple-colors(background);
 	cursor:pointer;
+
+	&:before{
+		content : "";
+		display: block;
+		margin-top: 56.25%;
+	}
+
 	img{
 		@include box-sizing(border-box);
-		@include relative;
+		@include absolute( top 0 left 0 right 0 bottom 0);
 		display: block;
 		opacity: 1;
 		width:105%;
