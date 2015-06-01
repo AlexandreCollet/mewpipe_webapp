@@ -17,4 +17,10 @@
 	}
 
 	.toast-title{ margin-bottom: 5px; }
+
+	.toast-success { background-color: $color-success; }
+	.toast-warning { background-color: $color-warning; }
+	.toast-error { background-color: $color-error; }
+	.toast-info { background-color: $color-info; }
+
 }
