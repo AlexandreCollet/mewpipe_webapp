@@ -51,7 +51,10 @@ function videoJs(){
 
 		var shareButton = player.controlBar.addChild('button', {});
 		shareButton.addClass("vjs-share"); 
-		shareButton.on('click',scope.shareAction);
+		shareButton.on('click',function(){
+			player.pause();
+			scope.shareAction();
+		});
 
 		_setVideoSizes(player,videoContainer);
 
