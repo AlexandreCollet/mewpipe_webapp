@@ -18,17 +18,17 @@ angular.module('mewpipe')
 	   			maxSize        : 524288000,
 	   			privacyOptions : [
 	   				{
-	   					value   : "public",
+	   					value   : "0",
 	   					label   : "Public (Available to anybody)",
 	   					default : true,
 	   				},
 	   				{
-	   					value   : "private_link",
+	   					value   : "1",
 	   					label   : "Private Link (Available to anybody unauthenticated with the link)",
 	   					default : false,
 	   				},
 	   				{
-	   					value   : "private",
+	   					value   : "2",
 	   					label   : "Private (Available only to authenticated users)",
 	   					default : false,
 	   				},
