@@ -33,5 +33,6 @@ tr:nth-child(even){ background: lighten($color-bg,10%); }
 	text-decoration: none;
 	color:white;
 	font-size: 25px;
+	cursor:pointer;
 	&:not(:last-child){ padding-right: $gutterSize; }
 }

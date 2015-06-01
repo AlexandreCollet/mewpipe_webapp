@@ -8,10 +8,15 @@ $color-bg   : #111;
 $colors : (
 	"yellow" : #f2ae44,
 	"blue"   : #56B4D3,
-	"green"  : #00C8C8,
+	"green"  : #b3cf46,
 	"orange" : #ff6d00,
 	"violet" : #9e7ac2
 );
+
+$color-success : #b3cf46;
+$color-warning : #ff6d00;
+$color-error   : #fd6a62;
+$color-info    : #56B4D3;
 
 /**
  * IMAGES

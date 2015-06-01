@@ -1,0 +1,45 @@
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - HEADER- - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+
+<div ng-include="'/app/views/partials/header.html'"></div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - RESULTS - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+
+<div id="results" class="container">
+
+	
+    <div class="listTitle lighten">
+        <div class="line"></div>
+        <h2>My videos</h2>
+    </div>
+
+    <table infinite-scroll="loadMore()">
+        
+        <tr>
+            <th class="title">Title</th>
+            <th class="views">Views</th>
+            <th class="shares">Shares</th>
+            <th class="actions">Actions</th>
+        </tr>
+
+        <tr ng-repeat="(key,video) in videos">
+            <td class="title">{{ video.title }}</td>
+            <td class="views">{{ video.views_statistics.total }}</td>
+            <td class="shares">{{ video.shares_statistics.total }}</td>
+            <td class="actions">
+                <a class="video_link" href="/#/videos/{{ video.uid }}">></a>
+                <a class="video_link" ng-click="openEditModal(video.uid,key)">e</a>
+                <a class="video_link" ng-click="openRemoveModal(video.uid,key)">t</a>
+            </td>
+        </tr>
+
+    </table>
+
+    <div ng-show="busy" id="videos_loader" class="loader"></div>
+
+
+</div>

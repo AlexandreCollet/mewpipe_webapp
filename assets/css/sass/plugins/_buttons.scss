@@ -1,0 +1,22 @@
+.btn{
+	@include inline-block;
+	@include multiple-colors(background);
+	border:none;
+	padding : 0 $gutterSize;
+	line-height: 50px;
+	font-size: 20px;
+	@include border-radius(3px);
+	font-family: $font-texts;
+	color:white;
+	cursor:pointer;
+	text-decoration: none;
+}
+
+.btn.btn-success { background : $color-success; }
+.btn.btn-warning { background : $color-warning; }
+.btn.btn-error   { background : $color-error; }
+.btn.btn-info    { background : $color-info; }
+
+.btn-list{
+	text-align: center;
+}
