@@ -8,5 +8,6 @@ angular.module('mewpipe',[
 	'toastr',
 	'ngFileUpload',
 	'ngTagsInput',
+	'rzModule'
 
 ]);

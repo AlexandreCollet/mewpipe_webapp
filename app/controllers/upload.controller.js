@@ -47,6 +47,11 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 		}
 	});
 
+	$scope.$watch('video.thumbnail_frame', function(newValue){
+		if(!$scope.video) return;
+		$scope.video.thumbnail_url = Config.server.url + ":" + Config.server.port + "/api/videos/" + $scope.video.uid + "/thumbnail?t=" + newValue;
+	});
+
 	function create(file){
 				
 		var filename = /(.*)\.[^.]+$/.exec(file.name)[1];

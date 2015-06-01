@@ -1,0 +1,9 @@
+rzslider{
+	
+	span.rz-bar{ background-color: white; }
+
+	span.rz-pointer{ @include multiple-colors(background-color); }
+
+	span.rz-pointer.rz-active:after{ background-color: white; }
+
+}
