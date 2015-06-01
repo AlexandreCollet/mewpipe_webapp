@@ -1,13 +1,12 @@
 angular.module('mewpipe')
 	   .controller('UploadController', UploadController);
 
-UploadController.$inject = ['$scope','videosService','Upload','Config'];
+UploadController.$inject = ['$scope','videosService','Upload','toastr','Config'];
 
-function UploadController($scope,videosService,Upload,Config){
+function UploadController($scope,videosService,Upload,toastr,Config){
 
 	$scope.titleMaxLength = Config.video.titleMaxLength;
 
-	$scope.errors         = [];
 	$scope.statusMessages = [
 		"Select or drag your video",
 		"Start upload",
@@ -25,16 +24,13 @@ function UploadController($scope,videosService,Upload,Config){
 	$scope.editVideo    = editVideo;
 
 	$scope.$watch('file',function(){
-		if($scope.status !== 0 || !$scope.file) return;
+		if($scope.status !== 0 || !$scope.file || $scope.file.length == 0 || !validateFile($scope.file[0])) return;
 		$scope.status = 1;
-		create($scope.file);
+		create($scope.file[0]);
 	});
 
 	function create(file){
-		
-
-		var file = file[0];
-		
+				
 		var filename = /(.*)\.[^.]+$/.exec(file.name)[1];
 
 		var video = new videosService({
@@ -76,18 +72,16 @@ function UploadController($scope,videosService,Upload,Config){
 
 		var valid = true;
 
-		$scope.errors = [];
-		
 		if(file.size > Config.video.maxSize){
 			valid = false;
-			$scope.errors.push('Max size allowed is 500Mo');
+			toastr.error('Error','Max size allowed is 500Mo');
 		}
 		if(!Config.regex.video.test(file.type)){
 			valid = false;
-			$scope.errors.push('Only videos are accepted');
+			toastr.error('Error','Only videos are accepted');
 		}
 
-		if(!valid) return false;
+		return valid;
 	}
 
 }
