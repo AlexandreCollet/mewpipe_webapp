@@ -46,6 +46,7 @@ function videoJs(){
 		scope.video.$promise.then(function(v){
 			player.src(v.file_urls);
 			player.poster(v.thumbnail_url);
+			_setVideoSizes(player,videoContainer);
 		})
 
 		var shareButton = player.controlBar.addChild('button', {});
@@ -54,7 +55,7 @@ function videoJs(){
 
 		_setVideoSizes(player,videoContainer);
 
-		window.addEventListener('resize', function(){ _setVideoSizes(player,videoContainer); });
+		addResizeListener(videoContainer,function(){ _setVideoSizes(player,videoContainer); })
 
 		element.bind("$destroy", function(){ player.dispose(); });
 	}
