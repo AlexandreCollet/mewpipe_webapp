@@ -81,11 +81,52 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 
 	function editVideo(isValid){
 
-		if(!isValid) return;
+		if(!validateForm()) return;
+
 		videosService.update({id : $scope.video.uid }, $scope.video)
 			.$promise.then(function(video){
 				$scope.video = video;
 			});
+	}
+
+	function validateForm(){
+
+		if(!$scope.video) return false;
+
+		var isValid = true;
+
+		if(!$scope.video.title){
+			isValid = false;
+			toastr.error('Title is required','Validation error');
+		}
+
+		if($scope.video.title && $scope.video.title.length > $scope.titleMaxLength){
+			isValid = false;
+			toastr.error('Title max length : ' + $scope.titleMaxLength,'Validation error');
+		}
+
+		if(!$scope.video.privacy){
+			isValid = false;
+			toastr.error('Privacy need to be set','Validation error');
+		}
+
+		if($scope.video.privacy){
+			var validPrivacy = false;
+			for(var i=0,l=$scope.privacyOptions.length;i<l;i++){
+				if($scope.video.privacy === $scope.privacyOptions[i].value){
+					validPrivacy = true;
+					break;
+				}
+			}
+			if(!validPrivacy){
+				isValid = false;
+				toastr.error('Invalid privacy','Validation error');
+			}
+		}
+
+		
+
+		return isValid;
 	}
 
 	function validateFile(file){
@@ -94,11 +135,11 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 
 		if(file.size > Config.video.maxSize){
 			valid = false;
-			toastr.error('Error','Max size allowed is 500Mo');
+			toastr.error('Max size allowed is 500Mo','Validation error');
 		}
 		if(!Config.regex.video.test(file.type)){
 			valid = false;
-			toastr.error('Error','Only videos are accepted');
+			toastr.error('Only videos are accepted','Validation error');
 		}
 
 		return valid;
