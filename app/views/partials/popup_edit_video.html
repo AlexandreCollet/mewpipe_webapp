@@ -17,8 +17,8 @@
 
     <div class="input">
         <label for="video_privacy">Privacy</label>
-        <select id="video_privacy" ng-model="video.privacy_policy" ng-required>
-            <option value="{{ privacy.value }}" ng-repeat="privacy in privacyOptions" ng-selected="privacy.default">{{ privacy.label }}</option>
+        <select id="video_privacy" ng-model="video.privacy_policy" ng-required convert-to-number>
+            <option value="{{ privacy.value }}" ng-repeat="privacy in privacyOptions" ng-selected="privacy.value === video.privacy_policy">{{ privacy.label }}</option>
         </select>
     </div>
 
