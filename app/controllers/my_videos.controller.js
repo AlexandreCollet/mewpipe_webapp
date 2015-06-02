@@ -32,17 +32,23 @@ function MyVideosController($scope, videosService, ngDialog){
 
 	function openEditModal(videoId,key){
 		ngDialog.open({ 
-			template   : 'app/views/partials/popup_edit_video.html'
+			template   : 'app/views/partials/popup_edit_video.html',
+			controller : 'EditVideoController',
+			scope      : $scope,
+			data       : {
+				videoId    : videoId,
+				videoIndex : key,
+			}
 		});
 	}
 
 	function openRemoveModal(videoId,key){
 		ngDialog.open({ 
 			template   : 'app/views/partials/popup_remove_video.html',
-			'controller' : 'RemoveVideoController',
-			scope : $scope,
-			data : {
-				videoId : videoId,
+			controller : 'RemoveVideoController',
+			scope      : $scope,
+			data       : {
+				videoId    : videoId,
 				videoIndex : key,
 			}
 		});

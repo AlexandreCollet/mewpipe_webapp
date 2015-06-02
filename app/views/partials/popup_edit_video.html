@@ -2,3 +2,40 @@
     <div class="line"></div>
     <h2>Edit</h2>
 </div>
+
+<form name="videoForm" class="form full_width" ng-submit="editVideo(videoForm.$valid)" novalidate>
+        
+    <div class="input">
+        <label for="video_title">Title</label>
+        <input type="text" ng-model="video.title" id="video_title" ng-required ng-maxlength="{{ titleMaxLength }}">
+    </div>
+
+    <div class="input">
+        <label for="video_description">Description</label>
+        <textarea id="video_description" ng-model="video.description"></textarea>
+    </div>
+
+    <div class="input">
+        <label for="video_privacy">Privacy</label>
+        <select id="video_privacy" ng-model="video.privacy_policy" ng-required>
+            <option value="{{ privacy.value }}" ng-repeat="privacy in privacyOptions" ng-selected="privacy.default">{{ privacy.label }}</option>
+        </select>
+    </div>
+
+    <div class="input">
+        <label for="video_description">Tags</label>
+        <tags-input ng-model="tags"></tags-input>
+    </div>
+
+    <div class="input">
+        <div class="thumbnail_preview">
+            <video-preview video="video"></video-preview>
+            <rzslider rz-slider-model="video.thumbnail_frame" rz-slider-floor="0" rz-slider-ceil="video.duration"></rzslider>    
+        </div>
+    </div>
+
+    <div class="submit">
+        <button type="submit" id="videoFormSubmit" class="submit" ng-disabled="videoForm.$invalid">Edit</button>
+    </div>
+
+</form>
