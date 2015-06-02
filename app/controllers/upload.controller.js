@@ -109,12 +109,12 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 			toastr.error('Title max length : ' + $scope.titleMaxLength,'Validation error');
 		}
 
-		if(!$scope.video.privacy_policy){
+		if($scope.video.privacy_policy === "" || $scope.video.privacy_policy === null || $scope.video.privacy_policy === undefined){
 			isValid = false;
 			toastr.error('Privacy need to be set','Validation error');
 		}
 
-		if($scope.video.privacy_policy){
+		if($scope.video.privacy_policy !== "" && $scope.video.privacy_policy !== null && $scope.video.privacy_policy !== undefined){
 			var validPrivacy = false;
 			for(var i=0,l=$scope.privacyOptions.length;i<l;i++){
 				if($scope.video.privacy_policy === $scope.privacyOptions[i].value){
