@@ -23,17 +23,24 @@ function RegisterController($scope,$auth,toastr,Config){
 	function onSubmit(isValid){
 
 		if(!validateForm())	return;
-
-		$auth.signup({
+		
+		var user = {
 			username  : $scope.username,
 			firstname : $scope.firstname,
 			lastname  : $scope.lastname,
 			email     : $scope.email,
 			password1 : $scope.password,
 			password2 : $scope.confirmation
-		}).then(function(){
+		}
+
+		var successCallback = function(){
 			toastr.success('Successfully registered','Success');
-		})
+		};
+		var errorCallback = function(){
+			toastr.error('Error on registration, try again', 'Error')
+		}
+
+		$auth.signup(user).then(successCallback,errorCallback);
 
 	}
 
