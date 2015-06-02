@@ -1,9 +1,9 @@
 angular.module('mewpipe')
        .controller('RegisterController', RegisterController);
 
-RegisterController.$inject = ['$scope','toastr','Config'];
+RegisterController.$inject = ['$scope','$auth','toastr','Config'];
 
-function RegisterController($scope,toastr,Config){
+function RegisterController($scope,$auth,toastr,Config){
 
 	$scope.usernameMaxLength  = Config.user.usernameMaxLength;
 	$scope.firstnameMaxLength = Config.user.firstnameMaxLength;
@@ -24,7 +24,16 @@ function RegisterController($scope,toastr,Config){
 
 		if(!validateForm())	return;
 
-		toastr.success('Valid','Success');
+		$auth.signup({
+			username  : $scope.username,
+			firstname : $scope.firstname,
+			lastname  : $scope.lastname,
+			email     : $scope.email,
+			password1 : $scope.password,
+			password2 : $scope.confirmation
+		}).then(function(){
+			toastr.success('Successfully registered','Success');
+		})
 
 	}
 
@@ -36,7 +45,7 @@ function RegisterController($scope,toastr,Config){
 			isValid = false;
 			toastr.error('Username required','Validation error');
 		}
-		
+
 		if($scope.username && $scope.username.length > $scope.usernameMaxLength){
 			isValid = false;
 			toastr.error('Username max length is ' + $scope.usernameMaxLength,'Validation error');
