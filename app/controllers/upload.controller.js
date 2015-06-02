@@ -33,18 +33,12 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 
 	$scope.$watchCollection('tags',function(newValues){
 		if(!$scope.video) return;
-		$scope.video.tags = [];
-		for(var i=0,l=newValues.length;i<l;i++){
-			$scope.video.tags.push(newValues[i].text);
-		}
+		$scope.video.tags = tagsObjectsToArray(newValues);
 	});
 
 	$scope.$watchCollection('video.tags',function(newValues){
 		if(!$scope.video) return;
-		$scope.tags = [];
-		for(var i=0,l=newValues.length;i<l;i++){
-			$scope.tags.push({ text : newValues[i] });
-		}
+		$scope.tags = tagsArrayToObjects(newValues);
 	});
 
 	$scope.$watch('video.thumbnail_frame', function(newValue){
@@ -151,6 +145,22 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 		}
 
 		return valid;
+	}
+
+	function tagsArrayToObjects(tags){
+		var t = [];
+		for(var i=0,l=tags.length;i<l;i++){
+			t.push({ text : tags[i] });
+		}
+		return t;
+	}
+
+	function tagsObjectsToArray(tags){
+		var t = [];
+		for(var i=0,l=tags.length;i<l;i++){
+			t.push(tags[i].text);
+		}
+		return t;
 	}
 
 }
