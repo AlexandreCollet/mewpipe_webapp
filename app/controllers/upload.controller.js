@@ -79,7 +79,8 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 		}).success(function(data, status, headers, config){
 			$scope.status = 3;
 			videosService.findOne({id : $scope.video.uid}).$promise.then(function(video){
-				$scope.video = video;
+				$scope.video.duration      = video.duration;
+				$scope.video.thumbnail_url = video.thumbnail_url;
 			})
 		}).error(function(){
 			$scope.status = 4;
