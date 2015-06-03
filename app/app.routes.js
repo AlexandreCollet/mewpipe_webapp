@@ -23,6 +23,11 @@ function configure($routeProvider) {
 			controller   : 'RegisterController'
 		})
 
+		.when('/account', {
+			templateUrl : '/app/views/account.html',
+			controller  : 'AccountController'
+		})
+
 		.when('/upload', {
 			templateUrl  : '/app/views/upload.html',
 			controller   : 'UploadController'

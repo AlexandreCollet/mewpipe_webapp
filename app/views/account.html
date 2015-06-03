@@ -1,0 +1,63 @@
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - HEADER- - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+
+<div ng-include="'/app/views/partials/header.html'"></div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - RESULTS - - - - - - - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+
+<div id="results" class="container">
+
+	
+    <div class="listTitle lighten">
+        <div class="line"></div>
+        <h2>Account</h2>
+    </div>
+
+    <form name="accountForm" class="form" ng-submit="onSubmit(accountForm.$valid)" novalidate>
+
+        <div class="input">
+            <label for="account_input_username">Username</label>
+            <input type="text" ng-model="username" id="account_input_username" required ng-maxlength="{{ usernameMaxLength }}">
+        </div>
+
+        <div class="input">
+            <label for="account_input_firstname">Firstname</label>
+            <input type="text" ng-model="firstname" id="account_input_firstname" ng-maxlength="{{ firstnameMaxLength }}">
+        </div>
+
+        <div class="input">
+            <label for="account_input_lastname">Lastname</label>
+            <input type="text" ng-model="lastname" id="account_input_lastname" ng-maxlength="{{ lastnameMaxLength }}">
+        </div>
+
+        <div class="input">
+            <label for="account_input_email">Email</label>
+            <input type="email" ng-model="email" ng-pattern="regexEmail" id="account_input_email" required>
+        </div>
+        
+        <div class="input">
+            <label for="account_input_current_password">Current Password</label>
+            <input type="password" ng-model="current_password" id="account_input_current_password" required>
+        </div>
+
+        <div class="input">
+            <label for="account_input_new_password">New Password</label>
+            <input type="password" ng-model="new_password" id="account_input_new_password" ng-pattern="regexPassword" required>
+        </div>
+
+        <div class="input">
+            <label for="account_input_confirmation">Confirmation</label>
+            <input type="password" ng-model="confirmation" id="account_input_confirmation" ng-pattern="new_password" required>
+        </div>
+        
+        <div class="submit">
+            <button type="submit" id="account_submit" class="submit" ng-disabled="accountForm.$invalid">Edit</button>
+        </div>
+    
+    </form>
+
+</div>
