@@ -20,13 +20,16 @@ angular.module('mewpipe')
 	   		 * Auth Provider
 	   		 */
 	   		$authProvider.loginOnSignup = false;
+	   		$authProvider.tokenName     = 'key';
+	   		
 	   		$authProvider.baseUrl  = Config.server.url + ':' + Config.server.port + '/api';
-	   		$authProvider.loginUrl = '/login';
-	   		$authProvider.signupUrl = '/registration/';
-	   		$authProvider.loginRoute = '/login';
-	   		$authProvider.signupRoute = '/register';
-	   		$authProvider.unlinkUrl = '/logout';
-	   		$authProvider.unlinkMethod = 'post';
+	   		
+			$authProvider.loginUrl     = '/login/';
+			$authProvider.signupUrl    = '/registration/';
+			$authProvider.loginRoute   = '/login';
+			$authProvider.signupRoute  = '/register';
+			$authProvider.unlinkUrl    = '/logout';
+			$authProvider.unlinkMethod = 'post';
 
 	   		$authProvider.facebook({
 		      	clientId: '950692341649325'
