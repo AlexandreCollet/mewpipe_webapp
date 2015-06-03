@@ -1,9 +1,9 @@
 angular.module('mewpipe')
        .controller('RegisterController', RegisterController);
 
-RegisterController.$inject = ['$scope','$auth','toastr','Config'];
+RegisterController.$inject = ['$scope','toastr','Config'];
 
-function RegisterController($scope,$auth,toastr,Config){
+function RegisterController($scope,toastr,Config){
 
 	$scope.usernameMaxLength  = Config.user.usernameMaxLength;
 	$scope.firstnameMaxLength = Config.user.firstnameMaxLength;
@@ -39,8 +39,6 @@ function RegisterController($scope,$auth,toastr,Config){
 		var errorCallback = function(){
 			toastr.error('Error on registration, try again', 'Error')
 		}
-
-		$auth.signup(user).then(successCallback,errorCallback);
 
 	}
 
