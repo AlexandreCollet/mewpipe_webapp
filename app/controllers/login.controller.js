@@ -1,9 +1,9 @@
 angular.module('mewpipe')
        .controller('LoginController', LoginController);
 
-LoginController.$inject = ['$scope','toastr'];
+LoginController.$inject = ['$scope','$auth','toastr'];
 
-function LoginController($scope,toastr){
+function LoginController($scope,$auth,toastr){
 
 	$scope.username = "";
 	$scope.password = "";
@@ -25,6 +25,8 @@ function LoginController($scope,toastr){
 		var errorCallback = function(){
 			toastr.error('Error on login, try again', 'Error')
 		}
+
+		$auth.login(user).then(successCallback,errorCallback);
 
 	}
 

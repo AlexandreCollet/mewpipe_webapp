@@ -1,5 +1,5 @@
 angular.module('mewpipe')
-	   .config(function(toastrConfig,$resourceProvider,Config){
+	   .config(function(toastrConfig,$resourceProvider,$authProvider,Config){
 
 	   		/**
 	   		 * Toastr
@@ -15,5 +15,22 @@ angular.module('mewpipe')
 	   		 */
 
 	   		$resourceProvider.defaults.stripTrailingSlashes = false;
+
+	   		/**
+	   		 * Auth Provider
+	   		 */
+	   		
+	   		$authProvider.baseUrl  = Config.server.url + ':' + Config.server.port + '/api';
+	   		
+			$authProvider.loginUrl     = '/login/';
+			$authProvider.signupUrl    = '/register/';
+			$authProvider.loginRoute   = '/login';
+			$authProvider.signupRoute  = '/register';
+			$authProvider.unlinkUrl    = '/logout';
+			$authProvider.unlinkMethod = 'post';
+
+	   		$authProvider.facebook({
+		      	clientId : '950692341649325'
+		    });
 
 	   });
