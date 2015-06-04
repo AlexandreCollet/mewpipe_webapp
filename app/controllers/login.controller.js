@@ -8,7 +8,14 @@ function LoginController($scope,$auth,toastr){
 	$scope.username = "";
 	$scope.password = "";
 
-	$scope.onSubmit = onSubmit;
+	$scope.authenticate = authenticate;
+	$scope.onSubmit     = onSubmit;
+
+	function authenticate(provider){
+		$auth.authenticate(provider).then(function(response,b,c){
+			console.log(response);
+		});
+	}
 
 	function onSubmit(isValid){
 
