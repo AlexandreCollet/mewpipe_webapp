@@ -22,8 +22,8 @@ function LoginController($scope,$auth,toastr){
 		if(!validateForm()) return false;
 
 		var user = {
-			username : $scope.username,
-			password : $scope.password
+			identifier : $scope.username,
+			password   : $scope.password
 		};
 
 		var successCallback = function(){
