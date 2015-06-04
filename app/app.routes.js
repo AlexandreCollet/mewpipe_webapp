@@ -18,6 +18,11 @@ function configure($routeProvider) {
 			controller   : 'LoginController'
 		})
 
+		.when('/logout', {
+			template     : " ",
+			controller   : 'LogoutController'
+		})
+
 		.when('/register', {
 			templateUrl  : '/app/views/register.html',
 			controller   : 'RegisterController'
