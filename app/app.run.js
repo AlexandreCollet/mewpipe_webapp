@@ -11,6 +11,8 @@ function run($rootScope, $location, $auth){
 		var acceptConnected = next.data.authentication.connected;
 		var isAuthenticated = $auth.isAuthenticated();
 
+		$rootScope.isAuthenticated = isAuthenticated;
+
 		if(	isAuthenticated  && !acceptConnected ||	!isAuthenticated && !acceptAnonymous ){
 			//$location.path('/login');
 		}
