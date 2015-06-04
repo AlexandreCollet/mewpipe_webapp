@@ -1,5 +1,5 @@
 angular.module('mewpipe')
-	   .config(function(toastrConfig,$resourceProvider,$authProvider,Config){
+	   .config(function(toastrConfig,$resourceProvider,$authProvider,$httpProvider,Config){
 
 	   		/**
 	   		 * Toastr
@@ -15,6 +15,12 @@ angular.module('mewpipe')
 	   		 */
 
 	   		$resourceProvider.defaults.stripTrailingSlashes = false;
+
+	   		/**
+	   		 * HTTP Provider
+	   		 */
+	   		
+	   		$httpProvider.interceptors.push('tokenInterceptor');
 
 	   		/**
 	   		 * Auth Provider
