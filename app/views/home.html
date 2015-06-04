@@ -26,8 +26,9 @@
     <search-form focus></search-form>
     
     <div id="links">
-        <a href="/#/login" >Login</a>
-        <a href="/#/register">Register</a>
+        <a ng-if="!isAuthenticated" href="/#/login">Login</a>
+        <a ng-if="!isAuthenticated" href="/#/register">Register</a>
+        <a ng-if="isAuthenticated"  href="/#/logout">Logout</a>
     </div>
 
     <div id='scroll_indicator'></div>

@@ -11,10 +11,14 @@ function run($rootScope, $location, $auth){
 		var acceptConnected = next.data.authentication.connected;
 		var isAuthenticated = $auth.isAuthenticated();
 
-		$rootScope.isAuthenticated = isAuthenticated;
+		$rootScope.isAuthenticated   = isAuthenticated;
+		$rootScope.authenticatedUser = $auth.getPayload() ? $auth.getPayload().user : null;
 
-		if(	isAuthenticated  && !acceptConnected ||	!isAuthenticated && !acceptAnonymous ){
-			//$location.path('/login');
+		if( !isAuthenticated && !acceptAnonymous ){
+			$location.path('/login');
+		}
+		if( isAuthenticated  && !acceptConnected ){
+			$location.path('/');
 		}
 
 	});

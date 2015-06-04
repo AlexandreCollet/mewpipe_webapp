@@ -46,8 +46,8 @@ function configure($routeProvider) {
 			controller     : 'RegisterController',
 			data : {
 				authentication : {
-					anonymous : false,
-					connected : true
+					anonymous : true,
+					connected : false
 				}
 			}
 		})
