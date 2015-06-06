@@ -74,7 +74,7 @@ function configure($routeProvider) {
 			}
 		})
 
-		.when('/search/:string', {
+		.when('/search/:string?', {
 			templateUrl    : '/app/views/results.html',
 			controller     : 'ResultsController',
 			controllerAs   : 'results',
