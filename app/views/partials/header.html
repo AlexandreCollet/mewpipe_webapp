@@ -15,11 +15,17 @@
     <div class="line"></div>
 
     <nav id="menu_desktop">
-    	<a href="#" class="primary active">Home</a>
-		<a href="#" class="primary">My videos</a>
-		<a href="#" class="primary">Upload</a>
-		<a href="#" class="secondary">Account</a>
-		<a href="#" class="secondary">Logout</a>
+    	
+        <a class="primary" href="/#/"> Home </a>
+        <a active-link class="primary" href="/#/search"> Search </a>
+		<a active-link class="primary" href="/#/my_videos" ng-if="isAuthenticated"> My videos </a>
+		<a active-link class="primary" href="/#/upload"    ng-if="isAuthenticated"> Upload </a>
+		
+        <a active-link class="secondary" href="/#/register" ng-if="!isAuthenticated"> Register </a>
+        <a active-link class="secondary" href="/#/login"    ng-if="!isAuthenticated"> Login </a>
+        <a active-link class="secondary" href="/#/account"  ng-if="isAuthenticated"> Account </a>
+		<a class="secondary" href="/#/logout"   ng-if="isAuthenticated"> Logout </a>
+    
     </nav>
 
 </header>

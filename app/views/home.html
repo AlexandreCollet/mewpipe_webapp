@@ -26,8 +26,11 @@
     <search-form focus></search-form>
     
     <div id="links">
+        <a ng-if="isAuthenticated"  href="/#/my_videos">My videos</a>
+        <a ng-if="isAuthenticated"  href="/#/upload">Upload</a>
         <a ng-if="!isAuthenticated" href="/#/login">Login</a>
         <a ng-if="!isAuthenticated" href="/#/register">Register</a>
+        <a ng-if="isAuthenticated"  href="/#/account">Account</a>
         <a ng-if="isAuthenticated"  href="/#/logout">Logout</a>
     </div>
 
