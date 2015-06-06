@@ -1,9 +1,9 @@
 angular.module('mewpipe')
        .factory('tokenInterceptor', tokenInterceptor);
 
-tokenInterceptor.$inject = ['Config'];
+tokenInterceptor.$inject = ['satellizer.storage','satellizer.config','Config'];
 
-function tokenInterceptor(Config){
+function tokenInterceptor(satellizerStorage,satellizerConfig,Config){
 	return {
 
 		'response' : function(response){
@@ -12,7 +12,10 @@ function tokenInterceptor(Config){
 
 			if(!r.test(response.config.url)) return response;
 
-			console.log('Back request');
+			var tokenKey = satellizerConfig.tokenPrefix ? satellizerConfig.tokenPrefix + '_' + satellizerConfig.tokenName : satellizerConfig.tokenName;
+			var newToken = response.headers('authorization');
+
+			if(newToken) satellizerStorage.set(tokenKey,newToken);
 
 			return response;
 		}
