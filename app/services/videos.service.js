@@ -1,10 +1,10 @@
 angular
 	.module('mewpipe')
-	.factory('videosService', video);
+	.factory('videosService', videosService);
 
-video.$inject = ['$resource','Config'];
+videosService.$inject = ['$resource','Config'];
 
-function video($resource,Config) {
+function videosService($resource,Config) {
 	return $resource( Config.server.url + ':' + Config.server.port + '/api/videos/:id', { id : '@id'}, {
 
 		/**
