@@ -1,37 +1,38 @@
 angular.module('mewpipe')
        .controller('AccountController', AccountController);
 
-AccountController.$inject = ['$scope','$location','toastr','Config'];
+AccountController.$inject = ['$auth','$scope','$location','toastr','Config'];
 
-function AccountController($scope,$location,toastr,Config){
+function AccountController($auth,$scope,$location,toastr,Config){
 
 	$scope.usernameMaxLength  = Config.user.usernameMaxLength;
 	$scope.firstnameMaxLength = Config.user.firstnameMaxLength;
 	$scope.lastnameMaxLength  = Config.user.lastnameMaxLength;
 	$scope.regexEmail         = Config.regex.email;
 	$scope.regexPassword      = Config.regex.password;
-	
-	$scope.username         = "";
-	$scope.firstname        = "";
-	$scope.lastname         = "";
-	$scope.email            = "";
+
+	var user = $auth.getPayload().user;
+
+	$scope.username         = user.username;
+	$scope.firstname        = user.first_name;
+	$scope.lastname         = user.last_name;
+	$scope.email            = user.email;
+
 	$scope.current_password = "";
 	$scope.new_password     = "";
 	$scope.confirmation     = "";
 
-	$scope.onSubmit = onSubmit;
+	$scope.onSubmitAccountForm = onSubmitAccountForm;
 
-	function onSubmit(isValid){
+	function onSubmitAccountForm(isValid){
 
-		if(!validateForm())	return;
+		if(!validateAccountForm()) return;
 		
 		var user = {
-			username  : $scope.username,
-			firstname : $scope.firstname,
-			lastname  : $scope.lastname,
-			email     : $scope.email,
-			password1 : $scope.password,
-			password2 : $scope.confirmation
+			username   : $scope.username  ,
+			first_name : $scope.firstname ,
+			last_name  : $scope.lastname  ,
+			email      : $scope.email
 		}
 
 		var successCallback = function(){
@@ -41,20 +42,30 @@ function AccountController($scope,$location,toastr,Config){
 			toastr.error('Error on edit, try again', 'Error')
 		}
 
+		console.log('Valid account');
+
 	}
 
-	function validateForm(){
+	function onSubmitPasswordForm(isValid){
+
+		if(!validatePasswordForm()) return;
+
+		var password = {
+			old_password  : $scope.current_password ,
+			new_password1 : $scope.new_password     ,
+			new_password2 : $scope.confirmation
+		}
+
+		console.log('Valid password');
+	}
+
+	function validateAccountForm(){
 
 		var isValid = true;
 
 		if(!$scope.username){
 			isValid = false;
 			toastr.error('Username required','Validation error');
-		}
-
-		if(!$scope.current_password){
-			isValid = false;
-			toastr.error('Current password required','Validation error');
 		}
 
 		if($scope.username && $scope.username.length > $scope.usernameMaxLength){
@@ -74,6 +85,19 @@ function AccountController($scope,$location,toastr,Config){
 			isValid = false;
 			toastr.error('Invalid email','Validation error');
 		}      
+
+		return isValid;
+	}
+
+	function validatePasswordForm(){
+
+		var isValid = true;
+
+		if(!$scope.current_password){
+			isValid = false;
+			toastr.error('Current password required','Validation error');
+		}
+
 		if(!$scope.regexPassword.test($scope.new_password)){
 			isValid = false;
 			toastr.error('Your password must contain minimum 6 characters, letters and at least one number','Validation error');
@@ -85,6 +109,7 @@ function AccountController($scope,$location,toastr,Config){
 		}
 
 		return isValid;
+
 	}
 	
 }
