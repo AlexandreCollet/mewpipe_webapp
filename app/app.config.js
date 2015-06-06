@@ -36,6 +36,7 @@ angular.module('mewpipe')
 			$authProvider.unlinkMethod = 'post';
 
 	   		$authProvider.facebook({
+	   			url      : '/facebook',
 		      	clientId : '950692341649325'
 		    });
 
