@@ -3,8 +3,9 @@ angular.module('mewpipe')
 
 function convertToNumber(){
 	return {
-		require : 'ngModel',
-		link    : function(scope, element, attrs, ngModel){
+		restrict : 'A',
+		require  : 'ngModel',
+		link     : function(scope, element, attrs, ngModel){
 
 			ngModel.$parsers.push(function(val){
 				return parseInt(val,10);
