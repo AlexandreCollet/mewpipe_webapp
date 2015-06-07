@@ -1,9 +1,9 @@
 angular.module('mewpipe')
        .controller('AccountController', AccountController);
 
-AccountController.$inject = ['$auth','$scope','$location','toastr','Config'];
+AccountController.$inject = ['$auth','usersService','$scope','$location','toastr','Config'];
 
-function AccountController($auth,$scope,$location,toastr,Config){
+function AccountController($auth,usersService,$scope,$location,toastr,Config){
 
 	$scope.usernameMaxLength  = Config.user.usernameMaxLength;
 	$scope.firstnameMaxLength = Config.user.firstnameMaxLength;
@@ -42,7 +42,7 @@ function AccountController($auth,$scope,$location,toastr,Config){
 			toastr.error('Error on edit, try again', 'Error')
 		}
 
-		console.log('Valid account');
+		usersService.update(user).$promise.then(successCallback,errorCallback);
 
 	}
 
