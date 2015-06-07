@@ -12,7 +12,7 @@ function LoginController($scope,$auth,toastr){
 	$scope.onSubmit     = onSubmit;
 
 	function authenticate(provider){
-		$auth.authenticate(provider).then(function(response,b,c){
+		$auth.authenticate(provider).then(function(response){
 			console.log(response);
 		});
 	}
