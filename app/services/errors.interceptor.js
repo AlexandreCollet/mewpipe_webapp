@@ -7,20 +7,19 @@ function errorsInterceptor($location,$q,Config){
 	return {
 
 		'responseError' : function(rejection){
-
+			
 			switch(rejection.status){
 
 				case 401 : 
 					$location.path('/login');
 					break;
-
-				default : 
-					$location.path('/error/' + rejection.status);
-					break; 
+				case 404 : 
+					$location.path('/error/404');
+					break;
 
 			}
 
-			return {};
+			return $q.reject(rejection);
 		}
 
 	}
