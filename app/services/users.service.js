@@ -5,7 +5,7 @@ angular
 usersService.$inject = ['$resource','Config'];
 
 function usersService($resource,Config) {
-	return $resource( Config.server.url + ':' + Config.server.port + '/api/user', {
+	return $resource( Config.server.url + ':' + Config.server.port + '/api/user/', {}, {
 
 		/**
 		 * PUT, PATCH, POST, DELETE
