@@ -27,7 +27,7 @@ function LoginController($scope,$auth,toastr){
 		};
 
 		var successCallback = function(){
-			toastr.success('Successfully login','Success');
+			toastr.success('Successfully logged in','Success');
 		};
 		var errorCallback = function(){
 			toastr.error('Error on login, try again', 'Error')
