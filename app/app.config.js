@@ -20,8 +20,8 @@ angular.module('mewpipe')
 	   		 * HTTP Provider
 	   		 */
 	   		
-	   		$httpProvider.interceptors.push('tokenInterceptor');
 	   		$httpProvider.interceptors.push('errorsInterceptor');
+	   		$httpProvider.interceptors.push('tokenInterceptor');
 
 	   		/**
 	   		 * Auth Provider
