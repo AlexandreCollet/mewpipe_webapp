@@ -33,11 +33,15 @@ function RegisterController($scope,$auth,toastr,Config){
 			password2 : $scope.confirmation
 		}
 
-		var successCallback = function(){
+		var successCallback = function(response){
 			toastr.success('Successfully registered','Success');
 		};
-		var errorCallback = function(){
-			toastr.error('Error on registration, try again', 'Error')
+		var errorCallback = function(response){
+			for(var field in response.data){
+				for(var i=0,l=response.data[field].length;i<l;i++){
+					toastr.error(response.data[field][i], field);
+				}
+			}
 		}
 
 		$auth.signup(user).then(successCallback,errorCallback);
