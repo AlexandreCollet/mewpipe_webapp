@@ -19,6 +19,8 @@
 
     <video-js share-action="openShareModal" video="video"></video-js>
 
+    <p class="author">By Alexandre Collet</p>
+
     <div class="video_informations">
 
         
@@ -75,15 +77,16 @@
 
         </div>
 
-        <div class="author">
+        <div class="tags">
             
             <div class="listTitle lighten">
                 <div class="line"></div>
-                <h3>Author</h3>
+                <h3>Tags</h3>
             </div>
 
-            <img src="http://www.gravatar.com/avatar/b3b38828063b1a3eb07f79f4e3ed66b1" alt="" class="avatar">
-            <p class="pseudo">Alexandre Collet</p>
+            <div class="tag" ng-repeat="tag in video.tags">
+                {{ tag }}
+            </div>
         
         </div>
 

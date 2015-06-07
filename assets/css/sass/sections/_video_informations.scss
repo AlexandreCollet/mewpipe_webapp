@@ -1,10 +1,19 @@
+.author{
+	display: block;
+	width: 60%;
+	@include breakpoint-tiny-small-medium{ width : 100%; }
+	text-align:right;
+	font-size: 16px;
+	margin: 5px auto 0;
+}
+
 .video_informations{
 	
 	margin-top: $gutterSize;
 	font-size: 0;
 	text-align: center;
 	
-	.description, .views, .shares, .author { 
+	.description, .views, .shares, .tags { 
 		@include box-sizing(border-box);
 		padding: $gutterSize;
 	}
@@ -15,7 +24,7 @@
 		text-align: justify;
 		@include breakpoint-tiny-small-medium{ width : 100%; }
 	}
-	.views, .shares, .author { 
+	.views, .shares, .tags { 
 		@include inline-block(top);
 		width: 33%; 
 		@include breakpoint-small-medium{ width : 50%; }
@@ -66,15 +75,17 @@
 		}
 	}
 	
-	.author{text-align: center;}
-	.avatar{
-		width:50%;
-	}
-	.pseudo{ 
-		font-size: 20px;
-		line-height: 30px;
-		font-family: $font-titles; 
-		color:$color-text;
+	.tags{text-align: center;}
+	.tag{
+		@include box-sizing(border-box);
+		display: inline-block;
+		padding: 5px;margin: 2px;
+		@include multiple-colors(background);
+		color:white;
+		font-family: $font-texts;
+		font-size: 15px;
+
+		@include border-radius(3px);
 	}
 }
 
