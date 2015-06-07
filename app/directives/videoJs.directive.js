@@ -12,7 +12,6 @@ function videoJs(){
 	var videoOptions = {
 		controls : true,
 		preload  : 'auto',
-		poster   : 'http://cdn.selz.com/plyr/1.0/poster.jpg',
 	};
 
 	/**
