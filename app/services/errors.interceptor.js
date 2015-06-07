@@ -20,7 +20,7 @@ function errorsInterceptor($location,$q,Config){
 
 			}
 
-			$q.reject(rejection);
+			return {};
 		}
 
 	}
