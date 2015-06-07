@@ -108,5 +108,16 @@ function configure($routeProvider) {
 			}
 		})
 
+		.when('/error/:code?', {
+			templateUrl : '/app/views/error.html',
+			controller  : 'ErrorsController',
+			data : {
+				authentication : {
+					anonymous : true,
+					connected : true
+				}
+			} 
+		})
+
 		.otherwise({ redirectTo : '/' });
 }
