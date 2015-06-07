@@ -27,10 +27,12 @@ angular.module('mewpipe')
 	   		 * Auth Provider
 	   		 */
 	   		
+	   		$authProvider.loginOnSignup = false;
+
 	   		$authProvider.baseUrl  = Config.server.url + ':' + Config.server.port + '/api';
 	   		
 			$authProvider.loginUrl     = '/login/';
-			$authProvider.signupUrl    = '/register/';
+			$authProvider.signupUrl    = '/user/';
 			$authProvider.loginRoute   = '/login';
 			$authProvider.signupRoute  = '/register';
 			$authProvider.unlinkUrl    = '/logout';
