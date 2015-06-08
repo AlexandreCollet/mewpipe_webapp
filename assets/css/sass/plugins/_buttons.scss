@@ -1,8 +1,11 @@
 .btn{
 	@include inline-block;
 	@include multiple-colors(background);
+	@include box-sizing(border-box);
+	width:250px;
 	border:none;
 	padding : 0 $gutterSize;
+	margin-top: 5px;
 	line-height: 50px;
 	font-size: 20px;
 	@include border-radius(3px);

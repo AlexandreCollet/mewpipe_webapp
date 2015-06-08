@@ -60,12 +60,15 @@
 	button[type=submit]{
 		@include inline-block;
 		@include multiple-colors(background);
+		@include box-sizing(border-box);
+		width:250px;
 		border:none;
 		padding : 0 $gutterSize;
 		line-height: 50px;
 		font-size: 20px;
 		font-family: $font-texts;
 		color:white;
+		@include border-radius(3px);
 		&:hover{ cursor:pointer; }
 		&:disabled{ opacity: 0.5;}
 	}

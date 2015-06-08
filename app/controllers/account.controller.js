@@ -1,9 +1,9 @@
 angular.module('mewpipe')
        .controller('AccountController', AccountController);
 
-AccountController.$inject = ['$auth','usersService','$scope','$location','toastr','Config'];
+AccountController.$inject = ['$auth','usersService','$scope','$location','ngDialog','toastr','Config'];
 
-function AccountController($auth,usersService,$scope,$location,toastr,Config){
+function AccountController($auth,usersService,$scope,$location,ngDialog,toastr,Config){
 
 	$scope.usernameMaxLength  = Config.user.usernameMaxLength;
 	$scope.firstnameMaxLength = Config.user.firstnameMaxLength;
@@ -22,7 +22,9 @@ function AccountController($auth,usersService,$scope,$location,toastr,Config){
 	$scope.new_password     = "";
 	$scope.confirmation     = "";
 
-	$scope.onSubmitAccountForm = onSubmitAccountForm;
+	$scope.onSubmitAccountForm  = onSubmitAccountForm;
+	$scope.onSubmitPasswordForm = onSubmitPasswordForm;
+	$scope.openDeleteModal      = openDeleteModal;
 
 	function onSubmitAccountForm(isValid){
 
@@ -110,6 +112,13 @@ function AccountController($auth,usersService,$scope,$location,toastr,Config){
 
 		return isValid;
 
+	}
+
+	function openDeleteModal(){
+		ngDialog.open({ 
+			template   : 'app/views/partials/popup_delete_user.html',
+			controller : 'DeleteUserController',
+		});
 	}
 	
 }

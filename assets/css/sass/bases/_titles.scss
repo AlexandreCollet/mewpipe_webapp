@@ -29,6 +29,7 @@ h3{
 	@include relative;
 	@include size(width 100%);
 	text-align: center;
+	padding-top: $gutterSize;
 	margin-bottom: $gutterSize*2;
 	.line{
 		@include multiple-colors(background);
