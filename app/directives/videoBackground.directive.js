@@ -45,9 +45,14 @@ function videoBackground(){
 
 		_setVideoSizes(player);
 
-		window.addEventListener('resize', function(){ _setVideoSizes(player); });
+		var resizeListener = function(){ _setVideoSizes(player); };
 
-		element.bind("$destroy", function(){ player.dispose(); });
+		window.addEventListener('resize', resizeListener );
+
+		element.bind("$destroy", function(){ 
+			window.removeEventListener('resize', resizeListener );		
+			player.dispose(); 
+		});
 	}
 
 	function _setVideoSizes(video){

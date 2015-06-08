@@ -57,9 +57,14 @@ function videoJs(){
 
 		_setVideoSizes(player,videoContainer);
 
-		addResizeListener(videoContainer,function(){ _setVideoSizes(player,videoContainer); })
+		var resizeListener = function(){ _setVideoSizes(player,videoContainer); };
 
-		element.bind("$destroy", function(){ player.dispose(); });
+		addResizeListener(videoContainer, resizeListener );
+
+		element.bind("$destroy", function(){
+			removeResizeListener(videoContainer, resizeListener ); 
+			player.dispose(); 
+		});
 	}
 
 	function _setVideoSizes(video,container){
