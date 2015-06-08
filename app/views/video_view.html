@@ -86,9 +86,9 @@
             
             <p ng-hide="video.tags.length" class="no-video">No tags</p>
 
-            <div class="tag" ng-repeat="tag in video.tags">
+            <a class="tag" ng-repeat="tag in video.tags" href="/#/tag/{{ tag }}">
                 {{ tag }}
-            </div>
+            </a>
         
         </div>
 

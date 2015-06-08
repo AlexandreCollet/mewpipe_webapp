@@ -49,6 +49,14 @@ function videosService($resource,Config) {
 			} 
 		},
 
+		tag : {
+			method : 'GET',
+			params: {
+				limit  : Config.requests.defaultLimit, 
+				offset : 0 
+			}
+		},
+
 		/**
 		 * PUT, PATCH, POST, DELETE
 		 */

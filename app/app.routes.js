@@ -86,6 +86,17 @@ function configure($routeProvider) {
 			}
 		})
 
+		.when('/tag/:string', {
+			templateUrl : '/app/views/tags.html',
+			controller  : 'TagsController',
+			data : {
+				authentication : {
+					anonymous : true,
+					connected : true
+				}
+			}
+		})
+
 		.when('/videos/:id', {
 			templateUrl    : '/app/views/video_view.html',
 			controller     : 'VideoController',
