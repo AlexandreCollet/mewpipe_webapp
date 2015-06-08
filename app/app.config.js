@@ -1,5 +1,5 @@
 angular.module('mewpipe')
-	   .config(function(toastrConfig,$resourceProvider,$authProvider,$httpProvider,Config){
+	   .config(function(toastrConfig,tagsInputConfigProvider,$resourceProvider,$authProvider,$httpProvider,Config){
 
 	   		/**
 	   		 * Toastr
@@ -8,6 +8,15 @@ angular.module('mewpipe')
 	   		angular.extend(toastrConfig, {
 	   			positionClass : 'toast-bottom-right',
 	   			closeButton   : true,
+	   		});
+
+	   		/**
+	   		 * Tags Input 
+	   		 */
+	   		
+	   		tagsInputConfigProvider.setDefaults('tagsInput',{
+	   			addOnSpace : true,
+	   			addOnBlur  : true,
 	   		});
 
 	   		/**
