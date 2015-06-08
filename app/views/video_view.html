@@ -83,6 +83,8 @@
                 <div class="line"></div>
                 <h3>Tags</h3>
             </div>
+            
+            <p ng-hide="video.tags.length" class="no-video">No tags</p>
 
             <div class="tag" ng-repeat="tag in video.tags">
                 {{ tag }}
