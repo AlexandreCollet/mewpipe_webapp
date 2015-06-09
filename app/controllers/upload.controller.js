@@ -51,7 +51,7 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 		var filename = /(.*)\.[^.]+$/.exec(file.name)[1];
 
 		var video = new videosService({
-			title : filename
+			title : filename.substring(0,Config.video.titleMaxLength)
 		});
 
 		video.$save(function(v){
