@@ -11,8 +11,6 @@ function VideoController($routeParams, $scope, $auth, videosService, ngDialog){
 		id : videoId
 	});
 
-	$scope.token = $auth.isAuthenticated() ? $auth.getToken() : null;
-
 	$scope.openShareModal = openShareModal;
 
 	function openShareModal(){

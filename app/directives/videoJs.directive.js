@@ -1,7 +1,9 @@
 angular.module('mewpipe')
 	   .directive('videoJs', videoJs);
 
-function videoJs(){
+videoJs.$inject = ['$rootScope'];
+
+function videoJs($rootScope){
 
 	/**
 	 * DEFAULT VARIABLES
@@ -24,8 +26,7 @@ function videoJs(){
 		link        : link,
 		scope       : {
 			shareAction : '=',
-			video       : '=',
-			token       : '='
+			video       : '='
 		}
 	}
 
@@ -49,13 +50,13 @@ function videoJs(){
 
 			for(var i=0,l=v.file_urls.length;i<l;i++){
 				sources.push({
-					src  : v.file_urls[i].src + ( scope.token ? "&token="+scope.token : "" ),
+					src  : v.file_urls[i].src + ( $rootScope.token ? "&token="+$rootScope.token : "" ),
 					type : v.file_urls[i].type 
 				});
 			}
 
 			player.src(sources);
-			player.poster(v.thumbnail_url + (scope.token ? "?token="+scope.token : "" ) );
+			player.poster(v.thumbnail_url + ($rootScope.token ? "?token="+$rootScope.token : "" ) );
 
 			_setVideoSizes(player,videoContainer);
 

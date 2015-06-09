@@ -23,6 +23,7 @@ function run($rootScope, $location, $auth, ngDialog){
 
 		$rootScope.isAuthenticated   = isAuthenticated;
 		$rootScope.authenticatedUser = $auth.getPayload() ? $auth.getPayload().user : null;
+		$rootScope.token             = $auth.isAuthenticated() ? $auth.getToken() : null;
 
 		if( !isAuthenticated && !acceptAnonymous ){
 			$location.path('/login');

@@ -1,5 +1,5 @@
 <figure class="video_preview">
-  	<img ng-src="{{ video.thumbnail_url }}" alt="">
+  	<img ng-src="{{ video.thumbnail_url  + getParameter }}" alt="">
     <figcaption>
         <h3>{{ video.title }}</h3>
         <a class="video_main_link" href="/#/videos/{{ video.uid }}"></a>
