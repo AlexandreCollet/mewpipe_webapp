@@ -10,7 +10,6 @@ function configure($routeProvider) {
 		.when('/', {
 			templateUrl    : '/app/views/home.html',
 			controller     : 'HomeController',
-			controllerAs   : 'home',
 			data : {
 				authentication : {
 					anonymous : true,

@@ -1,21 +1,20 @@
 angular.module('mewpipe')
        .controller('HomeController', HomeController);
 
-HomeController.$inject = ['videosService'];
+HomeController.$inject = ['$scope','videosService'];
 
-function HomeController(videosService){
+function HomeController($scope,videosService){
 
-	var vm = this;
-
-	vm.videos = {
+	$scope.videos = {
 		mostShared : [],
 		mostViewed : []
 	};
 
 	videosService.findMostShared({},function(videos){
-		vm.videos.mostShared = videos.results;
+		$scope.videos.mostShared = videos.results;
 	});
 	videosService.findMostPlayed({},function(videos){
-		vm.videos.mostViewed = videos.results;
+		$scope.videos.mostViewed = videos.results;
 	});
+
 }
