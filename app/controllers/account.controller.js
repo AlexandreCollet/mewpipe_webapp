@@ -23,7 +23,6 @@ function AccountController($auth,usersService,$scope,$location,ngDialog,toastr,C
 	$scope.confirmation     = "";
 
 	$scope.onSubmitAccountForm  = onSubmitAccountForm;
-	$scope.onSubmitPasswordForm = onSubmitPasswordForm;
 	$scope.openDeleteModal      = openDeleteModal;
 
 	function onSubmitAccountForm(isValid){
@@ -34,7 +33,10 @@ function AccountController($auth,usersService,$scope,$location,ngDialog,toastr,C
 			username   : $scope.username  ,
 			first_name : $scope.firstname ,
 			last_name  : $scope.lastname  ,
-			email      : $scope.email
+			email      : $scope.email,
+			current_password : $scope.current_password ,
+			new_password1    : $scope.new_password     ,
+			new_password2    : $scope.confirmation
 		}
 
 		var successCallback = function(){
@@ -46,19 +48,6 @@ function AccountController($auth,usersService,$scope,$location,ngDialog,toastr,C
 
 		usersService.update(user).$promise.then(successCallback,errorCallback);
 
-	}
-
-	function onSubmitPasswordForm(isValid){
-
-		if(!validatePasswordForm()) return;
-
-		var password = {
-			old_password  : $scope.current_password ,
-			new_password1 : $scope.new_password     ,
-			new_password2 : $scope.confirmation
-		}
-
-		console.log('Valid password');
 	}
 
 	function validateAccountForm(){
@@ -88,19 +77,12 @@ function AccountController($auth,usersService,$scope,$location,ngDialog,toastr,C
 			toastr.error('Invalid email','Validation error');
 		}      
 
-		return isValid;
-	}
-
-	function validatePasswordForm(){
-
-		var isValid = true;
-
 		if(!$scope.current_password){
 			isValid = false;
 			toastr.error('Current password required','Validation error');
 		}
 
-		if(!$scope.regexPassword.test($scope.new_password)){
+		if($scope.new_password && !$scope.regexPassword.test($scope.new_password)){
 			isValid = false;
 			toastr.error('Your password must contain minimum 6 characters, letters and at least one number','Validation error');
 		} 
@@ -111,7 +93,6 @@ function AccountController($auth,usersService,$scope,$location,ngDialog,toastr,C
 		}
 
 		return isValid;
-
 	}
 
 	function openDeleteModal(){
