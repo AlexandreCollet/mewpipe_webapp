@@ -23,8 +23,9 @@ function videoJs(){
 		restrict    : 'EA',
 		link        : link,
 		scope       : {
-			shareAction  : '=',
-			video : '='
+			shareAction : '=',
+			video       : '=',
+			token       : '='
 		}
 	}
 
@@ -43,9 +44,21 @@ function videoJs(){
 
 		//
 		scope.video.$promise.then(function(v){
-			player.src(v.file_urls);
+
+			var sources = [];
+
+			for(var i=0,l=v.file_urls.length;i<l;i++){
+				sources.push({
+					src  : v.file_urls[i].src + ( scope.token ? "&token="+scope.token : "" ),
+					type : v.file_urls[i].type 
+				});
+			}
+
+			player.src(sources);
 			player.poster(v.thumbnail_url);
+
 			_setVideoSizes(player,videoContainer);
+
 		})
 
 		var shareButton = player.controlBar.addChild('button', {});

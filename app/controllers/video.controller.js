@@ -1,15 +1,17 @@
 angular.module('mewpipe')
 	   .controller('VideoController', VideoController);
 
-VideoController.$inject = ['$routeParams','$scope','videosService', 'ngDialog'];
+VideoController.$inject = ['$routeParams','$scope','$auth','videosService', 'ngDialog'];
 
-function VideoController($routeParams, $scope, videosService, ngDialog){
+function VideoController($routeParams, $scope, $auth, videosService, ngDialog){
 
 	var videoId = $routeParams.id;
 
 	$scope.video = videosService.findOne({
 		id : videoId
 	});
+
+	$scope.token = $auth.isAuthenticated() ? $auth.getToken() : null;
 
 	$scope.openShareModal = openShareModal;
 
