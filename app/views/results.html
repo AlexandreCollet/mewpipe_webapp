@@ -17,7 +17,7 @@
         <h2>Search Results</h2>
     </div>
 
-    <p ng-hide="videos.length" class="no-video">No result</p>
+    <p ng-hide="videos.length || busy" class="no-video">No result</p>
 	
     <div infinite-scroll="loadMore()" class="infiniteScroll" ng-show="videos.length">
         <div ng-repeat="video in videos">

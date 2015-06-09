@@ -10,7 +10,7 @@ function ResultsController($scope, $routeParams, videosService, Config){
 	var endReached   = false;
 
 	$scope.searchString = $routeParams.string;
-	$scope.busy   = false;
+	$scope.busy   = true;
 	$scope.videos = [];
 
 	$scope.loadMore = loadMore;
@@ -18,6 +18,7 @@ function ResultsController($scope, $routeParams, videosService, Config){
 	videosService.search(
 		{ limit : limitResults, offset: 0, s: $scope.searchString },
 		function(response){
+			$scope.busy   = false;
 			$scope.videos = response.results;
 		}
 	);
