@@ -1,48 +1,46 @@
 angular.module('mewpipe')
        .controller('ResultsController', ResultsController);
 
-ResultsController.$inject = ['$routeParams', 'videosService', 'Config'];
+ResultsController.$inject = ['$scope','$routeParams', 'videosService', 'Config'];
 
-function ResultsController($routeParams, videosService, Config){
-
-	var vm = this;
+function ResultsController($scope, $routeParams, videosService, Config){
 
 	var currentPage  = 0;
 	var limitResults = Config.requests.defaultLimit;
 	var endReached   = false;
 
-	vm.searchString = $routeParams.string;
-	vm.busy   = false;
-	vm.videos = [];
+	$scope.searchString = $routeParams.string;
+	$scope.busy   = false;
+	$scope.videos = [];
 
-	vm.loadMore = loadMore;
+	$scope.loadMore = loadMore;
 
 	videosService.search(
-		{ limit : limitResults, offset: 0, s: vm.searchString },
+		{ limit : limitResults, offset: 0, s: $scope.searchString },
 		function(response){
-			vm.videos = response.results;
+			$scope.videos = response.results;
 		}
 	);
 
 
 	function loadMore(){
 
-		if(endReached || vm.busy) return;
+		if(endReached || $scope.busy) return;
 
-		vm.busy = true;
+		$scope.busy = true;
 		currentPage++;
 
 		videosService.search(
-			{ limit : limitResults, offset: currentPage*limitResults, s: vm.searchString },
+			{ limit : limitResults, offset: currentPage*limitResults, s: $scope.searchString },
 			function(response){
 
 				if(response.next === null) endReached = true;
 
 				for(var i=0,l=response.results.length;i<l;i++){
-					vm.videos.push(response.results[i]);
+					$scope.videos.push(response.results[i]);
 				}
 
-				vm.busy = false;
+				$scope.busy = false;
 			}
 		);
 

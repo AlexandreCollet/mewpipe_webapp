@@ -76,7 +76,6 @@ function configure($routeProvider) {
 		.when('/search/:string?', {
 			templateUrl    : '/app/views/results.html',
 			controller     : 'ResultsController',
-			controllerAs   : 'results',
 			data : {
 				authentication : {
 					anonymous : true,

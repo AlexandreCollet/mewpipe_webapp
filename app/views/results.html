@@ -17,15 +17,15 @@
         <h2>Search Results</h2>
     </div>
 
-    <p ng-hide="results.videos.length" class="no-video">No result</p>
+    <p ng-hide="videos.length" class="no-video">No result</p>
 	
-    <div infinite-scroll="results.loadMore()" class="infiniteScroll" ng-show="results.videos.length">
-        <div ng-repeat="video in results.videos">
+    <div infinite-scroll="loadMore()" class="infiniteScroll" ng-show="videos.length">
+        <div ng-repeat="video in videos">
             <video-preview video="video"></video-preview>
         </div>
     </div>
 
-    <div ng-show="results.busy" id="videos_loader" class="loader"></div>
+    <div ng-show="busy" id="videos_loader" class="loader"></div>
 
 </div>
 
@@ -33,4 +33,4 @@
 <!-- - - - - - - - - - - - - - - - SEARCH- - - - - - - - - - - - -  -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
 
-<search-form focus fixed value="{{results.searchString}}"></search-form>
+<search-form focus fixed value="{{searchString}}"></search-form>
