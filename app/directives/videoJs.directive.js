@@ -55,7 +55,7 @@ function videoJs(){
 			}
 
 			player.src(sources);
-			player.poster(v.thumbnail_url);
+			player.poster(v.thumbnail_url + (scope.token ? "?token="+scope.token : "" ) );
 
 			_setVideoSizes(player,videoContainer);
 
