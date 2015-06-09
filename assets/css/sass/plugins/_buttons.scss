@@ -15,10 +15,8 @@
 	text-decoration: none;
 }
 
-.btn.btn-success { background : $color-success; }
-.btn.btn-warning { background : $color-warning; }
 .btn.btn-error   { background : $color-error; }
-.btn.btn-info    { background : $color-info; }
+.btn.btn-warning,.btn.btn-success,.btn.btn-info  { @include multiple-colors(background); }
 
 .btn-list{
 	text-align: center;
