@@ -17,10 +17,20 @@ function videoPreview($rootScope){
 	function link(scope, element, attrs){
 
 		scope.token = $rootScope.token;
+		scope.url   = "";
 
-		var hasGetParameters = /\?/.test(scope.video.thumbnail_url);
+		scope.$watch('video', function(){
 
-		scope.getParameter =  scope.token ? ( hasGetParameters ? '&' : '?' ) + 'token=' + scope.token : '' ;
+			if(!scope.video) return;
+
+			scope.$watch('video.thumbnail_url', function(){
+				var hasGetParameters = /\?/.test(scope.video.thumbnail_url);
+
+				scope.url = scope.video.thumbnail_url + ( scope.token ? ( hasGetParameters ? '&' : '?' ) + 'token=' + scope.token : '' ) ;
+			});
+
+		});
+
 
 	}
 
