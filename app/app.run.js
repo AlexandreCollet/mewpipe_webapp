@@ -1,11 +1,21 @@
 angular.module('mewpipe')
        .run(run);
 
-run.$inject = ['$rootScope','$location','$auth'];
+run.$inject = ['$rootScope','$location','$auth','ngDialog'];
 
-function run($rootScope, $location, $auth){
+function run($rootScope, $location, $auth, ngDialog){
 
 	$rootScope.$on('$routeChangeStart', function(event, next){
+
+		/**
+		 * Close modals
+		 */
+		
+		ngDialog.closeAll();
+
+		/**
+		 * Check authentication
+		 */
 
 		var acceptAnonymous = next.data.authentication.anonymous;
 		var acceptConnected = next.data.authentication.connected;
