@@ -30,15 +30,16 @@ function hamburger(){
 	function link(scope, element, attrs){
 
 		var body = document.getElementById('body');
+		var hamburger = document.getElementById('hamburger');
 
 		element.on('click', function(){
 
 			if(body.hasClass('is_open')){
 				body.removeClass('is_open');
-				this.removeClass('is_active');
+				hamburger.removeClass('is_active');
 			}else{
 				body.addClass('is_open');
-				this.addClass('is_active');
+				hamburger.addClass('is_active');
 			}
 
 		})
