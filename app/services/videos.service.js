@@ -15,6 +15,13 @@ function videosService($resource,Config) {
 			method : 'GET' 
 		},
 
+		findAll : {
+			method : 'GET',
+			params : {
+				ordering : '-creation_date'
+			}
+		},
+
 		findMostShared : {
 			method : 'GET', 
 			params: {

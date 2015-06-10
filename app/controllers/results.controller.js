@@ -15,13 +15,28 @@ function ResultsController($scope, $routeParams, videosService, Config){
 
 	$scope.loadMore = loadMore;
 
-	videosService.search(
-		{ limit : limitResults, offset: 0, s: $scope.searchString },
-		function(response){
-			$scope.busy   = false;
-			$scope.videos = response.results;
-		}
-	);
+	if($scope.searchString){
+
+		videosService.search(
+			{ limit : limitResults, offset: 0, s: $scope.searchString },
+			function(response){
+				$scope.busy   = false;
+				$scope.videos = response.results;
+			}
+		);
+
+	} else {
+
+		videosService.findAll(
+			{}, 
+			function(response){
+				$scope.busy   = false;
+				$scope.videos = response.results;
+			}
+		);
+
+	}
+
 
 
 	function loadMore(){
