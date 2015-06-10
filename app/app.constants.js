@@ -19,9 +19,10 @@ angular.module('mewpipe')
 	   			lastnameMaxLength  : 50
 	   		},
 	   		video : {
-	   			titleMaxLength : 40,
-	   			maxSize        : 524288000,
-	   			privacyOptions : [
+	   			titleMaxLength  : 40,
+	   			maxSize         : 524288000,
+	   			nbThumbnailsMax : 100,
+	   			privacyOptions  : [
 	   				{
 	   					value   : 0,
 	   					label   : "Public (Available to anybody)",
