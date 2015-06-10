@@ -31,7 +31,7 @@ function TagsController($scope, $routeParams, videosService, Config){
 		currentPage++;
 
 		videosService.tag(
-			{ limit : limitResults, offset: currentPage*limitResults },
+			{ limit : limitResults, offset: currentPage*limitResults, tag__name: $scope.tagName  },
 			function(response){
 
 				if(response.next === null) endReached = true;
