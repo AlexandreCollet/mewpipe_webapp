@@ -25,6 +25,8 @@
             <th class="title">Title</th>
             <th class="views">Views</th>
             <th class="shares">Shares</th>
+            <th class="status">Status</th>
+            <th class="privacy">Privacy</th>
             <th class="actions">Actions</th>
         </tr>
 
@@ -32,6 +34,12 @@
             <td class="title">{{ video.title }}</td>
             <td class="views">{{ video.views_statistics.total }}</td>
             <td class="shares">{{ video.shares_statistics.total }}</td>
+            <td class="status">
+                <div class="status_{{ video.status }}"></div>
+            </td>
+            <td class="privacy">
+                <div class="privacy_{{ video.privacy_policy }}"></div>
+            </td>
             <td class="actions">
                 <a class="video_link" href="/#/videos/{{ video.uid }}">></a>
                 <a class="video_link" ng-click="openEditModal(video.uid,key)">e</a>

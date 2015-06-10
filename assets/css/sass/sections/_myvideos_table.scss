@@ -30,10 +30,39 @@ td{
 
 tr:nth-child(even){ background: lighten($color-bg,10%); }
 
-.views,.shares{ 
+.views,.shares,.status,.privacy{ 
 	text-align: center; 
 	@include breakpoint-tiny { display: none; }
 }
+.views,.shares{
+	@include breakpoint-small-medium { display: none; }
+}
+
+.status .status_0,
+.status .status_1,
+.status .status_2,
+.status .status_3{
+	display: inline-block;
+	@include size(20px);
+	@include border-radius(50%);
+}
+.status .status_0 { background-color: $color-error; }
+.status .status_1 { background-color: $color-warning; }
+.status .status_2 { background-color: $color-warning; }
+.status .status_3 { background-color: $color-success; }
+
+.privacy .privacy_0,
+.privacy .privacy_1,
+.privacy .privacy_2{
+	&:after{
+		font-family: $font-icons;
+		font-size: 25px;
+		color:white;
+	}
+}
+.privacy .privacy_0:after { content:"o"; }
+.privacy .privacy_1:after { content:"l"; }
+.privacy .privacy_2:after { content:"p"; }
 
 .actions{
 	text-align: center;
