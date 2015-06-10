@@ -12,12 +12,13 @@ function videosService($resource,Config) {
 		 */
 
 		findOne : { 
-			method : 'GET' 
+			method : 'GET',
 		},
 
 		findAll : {
 			method : 'GET',
 			params : {
+				status   : Config.video.status.READY,
 				ordering : '-creation_date'
 			}
 		},
@@ -25,7 +26,8 @@ function videosService($resource,Config) {
 		findMostShared : {
 			method : 'GET', 
 			params: {
-				limit: 6,
+				limit    : 6,
+				status   : Config.video.status.READY,
 				ordering : '-weekly_share'
 			}
 		},
@@ -33,8 +35,9 @@ function videosService($resource,Config) {
 		findMostPlayed : { 
 			method : 'GET', 
 			params: {
-				limit: 6,
-				ordering: '-weekly_view'
+				limit    : 6,
+				status   : Config.video.status.READY,
+				ordering : '-weekly_view'
 			}
 		},
 
@@ -52,6 +55,7 @@ function videosService($resource,Config) {
 			method : 'GET', 
 			params: {
 				s      : "",
+				status : Config.video.status.READY,
 				limit  : Config.requests.defaultLimit, 
 				offset : 0 
 			} 
@@ -61,6 +65,7 @@ function videosService($resource,Config) {
 			method : 'GET',
 			params: {
 				limit     : Config.requests.defaultLimit, 
+				status    : Config.video.status.READY,
 				offset    : 0,
 				tag__name : ""
 			}

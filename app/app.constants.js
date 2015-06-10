@@ -22,6 +22,12 @@ angular.module('mewpipe')
 	   			titleMaxLength  : 40,
 	   			maxSize         : 524288000,
 	   			nbThumbnailsMax : 100,
+	   			status          : {
+	   				NEW       : 0,
+					UPLOADING : 1,
+					UPLOADED  : 2,
+					READY     : 3
+	   			},
 	   			privacyOptions  : [
 	   				{
 	   					value   : 0,
