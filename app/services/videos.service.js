@@ -41,9 +41,10 @@ function videosService($resource,Config) {
 		findByUser : { 
 			method : 'GET', 
 			params: {
-				offset : 0,
-				limit  : Config.requests.defaultLimit,
-				ordering : '-creation_date'
+				offset           : 0,
+				limit            : Config.requests.defaultLimit,
+				author__username : '',
+ 				ordering         : '-creation_date',
 			}
 		},
 

@@ -15,9 +15,9 @@ function MyVideosController($scope, videosService, ngDialog){
 	$scope.loadMore        = loadMore;
 	$scope.openEditModal   = openEditModal;
 	$scope.openRemoveModal = openRemoveModal;
-
+	console.log($scope.authenticatedUser);
 	videosService.findByUser(
-		{ limit : limitResults, offset: 0 },
+		{ limit : limitResults, offset: 0, author__username: $scope.authenticatedUser.username },
 		function(response){
 
 			if(response.next === null) endReached = true;
@@ -62,7 +62,7 @@ function MyVideosController($scope, videosService, ngDialog){
 		currentPage++;
 
 		videosService.findByUser(
-			{ limit : limitResults, offset: currentPage*limitResults },
+			{ limit : limitResults, offset: currentPage*limitResults, author__username: $scope.authenticatedUser.username },
 			function(response){
 
 				if(response.next === null) endReached = true;
