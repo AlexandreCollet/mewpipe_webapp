@@ -25,12 +25,12 @@ function RegisterController($scope,$auth,toastr,Config){
 		if(!validateForm())	return;
 		
 		var user = {
-			username  : $scope.username,
-			firstname : $scope.firstname,
-			lastname  : $scope.lastname,
-			email     : $scope.email,
-			password1 : $scope.password,
-			password2 : $scope.confirmation
+			username   : $scope.username,
+			first_name : $scope.firstname,
+			last_name  : $scope.lastname,
+			email      : $scope.email,
+			password1  : $scope.password,
+			password2  : $scope.confirmation
 		}
 
 		var successCallback = function(response){
