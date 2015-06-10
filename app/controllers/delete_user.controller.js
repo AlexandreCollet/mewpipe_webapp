@@ -1,9 +1,9 @@
 angular.module('mewpipe')
 	   .controller('DeleteUserController', DeleteUserController);
 
-DeleteUserController.$inject = ['$scope','usersService','toastr','Config'];
+DeleteUserController.$inject = ['$scope','usersService','$auth','toastr','Config'];
 
-function DeleteUserController($scope,usersService,toastr,Config){
+function DeleteUserController($scope,usersService,$auth,toastr,Config){
 	
 	$scope.confirm = confirm;
 
