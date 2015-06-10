@@ -17,7 +17,7 @@ function TagsController($scope, $routeParams, videosService, Config){
 	$scope.loadMore = loadMore;
 
 	videosService.tag(
-		{ limit : limitResults, offset: 0 },
+		{ limit : limitResults, offset: 0, tag__name: $scope.tagName },
 		function(response){
 			$scope.videos = response.results;
 		}

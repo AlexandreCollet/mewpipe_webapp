@@ -59,8 +59,9 @@ function videosService($resource,Config) {
 		tag : {
 			method : 'GET',
 			params: {
-				limit  : Config.requests.defaultLimit, 
-				offset : 0 
+				limit     : Config.requests.defaultLimit, 
+				offset    : 0,
+				tag__name : ""
 			}
 		},
 
