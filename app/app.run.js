@@ -1,9 +1,11 @@
 angular.module('mewpipe')
        .run(run);
 
-run.$inject = ['$rootScope','$location','$auth','ngDialog'];
+run.$inject = ['$rootScope','$location','$timeout','$auth','ngDialog'];
 
-function run($rootScope, $location, $auth, ngDialog){
+function run($rootScope, $location, $timeout, $auth, ngDialog){
+
+	$rootScope.openedSidebar = false;
 
 	$rootScope.$on('$routeChangeStart', function(event, next){
 
@@ -33,5 +35,15 @@ function run($rootScope, $location, $auth, ngDialog){
 		}
 
 	});
+
+	$rootScope.$on('$viewContentLoaded',function(){
+		$timeout(function() {
+        	$rootScope.openedSidebar = false;
+      	},0);
+	});
+
+	$rootScope.toggleSidebar = function(){
+		$rootScope.openedSidebar = !$rootScope.openedSidebar;
+	}
 
 }
