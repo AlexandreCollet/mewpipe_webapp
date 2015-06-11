@@ -39,7 +39,6 @@
 		color:white;
 		text-decoration: none;
 		&.active, &:hover{ @include multiple-colors(color); }
-		&.secondary{ opacity : 0.4; }
 	}
 }
 
