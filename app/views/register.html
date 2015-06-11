@@ -21,17 +21,17 @@
 
         <div class="input">
             <label for="register_input_username">Username</label>
-            <input type="text" ng-model="username" id="register_input_username" required ng-maxlength="{{ usernameMaxLength }}">
+            <input type="text" ng-model="username" id="register_input_username" required maxlength="{{ usernameMaxLength }}">
         </div>
 
         <div class="input">
             <label for="register_input_firstname">Firstname</label>
-            <input type="text" ng-model="firstname" id="register_input_firstname" ng-maxlength="{{ firstnameMaxLength }}">
+            <input type="text" ng-model="firstname" id="register_input_firstname" maxlength="{{ firstnameMaxLength }}">
         </div>
 
         <div class="input">
             <label for="register_input_lastname">Lastname</label>
-            <input type="text" ng-model="lastname" id="register_input_lastname" ng-maxlength="{{ lastnameMaxLength }}">
+            <input type="text" ng-model="lastname" id="register_input_lastname" maxlength="{{ lastnameMaxLength }}">
         </div>
 
         <div class="input">
@@ -50,7 +50,7 @@
         </div>
         
         <div class="submit">
-            <button type="submit" id="register_submit" class="submit" ng-disabled="registerForm.$invalid">Register</button>
+            <button type="submit" id="register_submit" class="submit">Register</button>
         </div>
     
     </form>
