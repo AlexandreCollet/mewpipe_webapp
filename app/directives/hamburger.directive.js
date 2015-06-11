@@ -34,15 +34,13 @@ function hamburger(){
 
 		element.on('click', function(){
 
-			if(body.hasClass('is_open')){
-				body.removeClass('is_open');
-				hamburger.removeClass('is_active');
+			if(body.hasClass('sidebar_open')){
+				body.removeClass('sidebar_open');
 			}else{
-				body.addClass('is_open');
-				hamburger.addClass('is_active');
+				body.addClass('sidebar_open');
 			}
 
-		})
+		});
 	}
 
 }

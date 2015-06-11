@@ -3,7 +3,7 @@
 	left : -$nav-width;
 	@include size(width $nav-width);
 	@include transition( left 1s ); 
-	.is_open &{
+	.sidebar_open &{
 		@include breakpoint-tiny-small{
 			left:0;			
 		}
@@ -57,7 +57,7 @@
 	h1{
 		font-size: 40px;
 		@include transition(color 1s);
-		.is_open &{color:$color-bg;}
+		.sidebar_open &{color:$color-bg;}
 	}
 }
 
@@ -96,7 +96,7 @@
 		}
 	}
 
-	&.is_active div{
+	.sidebar_open & div{
 		background: $color-bg;
 		&:before,&:after{ top:0; }
 		&:before{ @include transform( rotate(45deg) ); }
