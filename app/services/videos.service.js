@@ -83,6 +83,13 @@ function videosService($resource,Config) {
 			method : 'DELETE' 
 		},
 
+		patchPrivacy : {
+			method : 'PATCH',
+			params : {
+				privacy_policy : 0
+			}
+		},
+
 		/**
 		 * OTHER ACTIONS
 		 */

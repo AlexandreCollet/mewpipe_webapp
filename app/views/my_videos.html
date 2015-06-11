@@ -38,7 +38,7 @@
                 <div class="status_{{ video.status }}"></div>
             </td>
             <td class="privacy">
-                <div class="privacy_{{ video.privacy_policy }}"></div>
+                <a class="privacy_{{ video.privacy_policy }}" ng-click="onClickPrivacy(video)"></a>
             </td>
             <td class="actions">
                 <a class="video_link" href="/#/videos/{{ video.uid }}">></a>
