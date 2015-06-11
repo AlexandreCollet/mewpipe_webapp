@@ -13,6 +13,9 @@ function errorsInterceptor($location,$q,Config){
 				case 401 : 
 					$location.path('/login');
 					break;
+				case 403 :
+					$location.path('/error/403');
+					break;
 				case 404 : 
 					$location.path('/error/404');
 					break;
