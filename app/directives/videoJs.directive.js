@@ -79,7 +79,7 @@ function videoJs($rootScope,Config){
 					};
 				}
 			}
-			console.log(thumbnails);
+
 			player.thumbnails(thumbnails);
 
 			_setVideoSizes(player,videoContainer);
