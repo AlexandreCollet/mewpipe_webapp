@@ -71,7 +71,7 @@ function videoJs($rootScope,Config){
 				}
 			}else{
 				thumbnails[0] = {
-					src : url + "?t=1&token=" + $rootScope.token,
+					src : url + "?t=1" + ($rootScope.token ? "&token="+$rootScope.token : "" ),
 				};
 				for(var i=1;i<=Config.video.nbThumbnailsMax;i++){
 					thumbnails[Math.round(i*(v.duration/Config.video.nbThumbnailsMax))] = {
