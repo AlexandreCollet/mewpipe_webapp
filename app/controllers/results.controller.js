@@ -15,31 +15,7 @@ function ResultsController($scope, $routeParams, videosService, Config){
 
 	$scope.loadMore = loadMore;
 
-	if($scope.searchString){
-
-		videosService.search(
-			{ limit : limitResults, offset: 0, s: $scope.searchString },
-			function(response){
-				$scope.busy   = false;
-				$scope.videos = response.results;
-			},
-			function(){ $scope.busy = false; }
-		);
-
-	} else {
-
-		videosService.findAll(
-			{}, 
-			function(response){
-				$scope.busy   = false;
-				$scope.videos = response.results;
-			},
-			function(){ $scope.busy = false; }
-		);
-
-	}
-
-
+	getRequest($scope.searchString,0,limitResults);
 
 	function loadMore(){
 
@@ -48,20 +24,39 @@ function ResultsController($scope, $routeParams, videosService, Config){
 		$scope.busy = true;
 		currentPage++;
 
-		videosService.search(
-			{ limit : limitResults, offset: currentPage*limitResults, s: $scope.searchString },
-			function(response){
+		getRequest($scope.searchString,currentPage*limitResults,limitResults);
 
-				if(response.next === null) endReached = true;
+	}
 
-				for(var i=0,l=response.results.length;i<l;i++){
-					$scope.videos.push(response.results[i]);
-				}
+	function getRequest(searchString,offset,limit){
 
-				$scope.busy = false;
-			},
-			function(){ $scope.busy = false; }
-		);
+		if(searchString){
+
+			videosService.search(
+				{ limit : limit, offset: offset, s: searchString },
+				function(response){
+					$scope.busy   = false;
+					for(var i=0,l=response.results.length;i<l;i++){
+						$scope.videos.push(response.results[i]);
+					}
+				},
+				function(){ $scope.busy = false; }
+			);
+
+		} else {
+
+			videosService.findAll(
+				{ limit : limitResults, offset: offset}, 
+				function(response){
+					$scope.busy   = false;
+					for(var i=0,l=response.results.length;i<l;i++){
+						$scope.videos.push(response.results[i]);
+					}
+				},
+				function(){ $scope.busy = false; }
+			);
+
+		}
 
 	}
 
