@@ -65,7 +65,7 @@ function videoJs($rootScope,Config){
 			if(v.duration <= Config.video.nbThumbnailsMax){
 				for(var i=1;i<=v.duration;i++){
 					thumbnails[i-1] = {
-						src : url + "?t=" + i + "&token=" + $rootScope.token,
+						src : url + "?t=" + i + ($rootScope.token ? "&token="+$rootScope.token : "" ),
 						width: '120px'
 					};
 				}
@@ -75,7 +75,7 @@ function videoJs($rootScope,Config){
 				};
 				for(var i=1;i<=Config.video.nbThumbnailsMax;i++){
 					thumbnails[Math.round(i*(v.duration/Config.video.nbThumbnailsMax))] = {
-						src : url + "?t=" + i + "&token=" + $rootScope.token,
+						src : url + "?t=" + i + ($rootScope.token ? "&token="+$rootScope.token : "" ),
 					};
 				}
 			}
