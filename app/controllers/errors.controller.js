@@ -10,9 +10,9 @@ function ErrorsController($scope,$routeParams,Config){
 	$scope.statusCode = routeStatusCode ? routeStatusCode : Config.errors.default;
 
 	if(Config.errors.messages.hasOwnProperty(routeStatusCode)){
-		$scope.statusText = Config.errors.messages[$scope.statusCode];
+		$scope.statusInfos = Config.errors.messages[$scope.statusCode];
 	} else {
-		$scope.statusText = Config.errors.unknow;
+		$scope.statusInfos = Config.errors.unknow;
 	}
 
 }	
