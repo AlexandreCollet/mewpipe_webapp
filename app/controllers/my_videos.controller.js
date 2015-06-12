@@ -28,7 +28,8 @@ function MyVideosController($scope, videosService, ngDialog, toastr, Config){
 			}
 
 			$scope.busy = false;
-		}
+		},
+		function(){ $scope.busy = false; }
 	);
 
 	function openEditModal(videoId,key){
@@ -83,7 +84,8 @@ function MyVideosController($scope, videosService, ngDialog, toastr, Config){
 				}
 
 				$scope.busy = false;
-			}
+			},
+			function(){ $scope.busy = false; }
 		);
 
 	}

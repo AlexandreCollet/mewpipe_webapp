@@ -22,7 +22,8 @@ function ResultsController($scope, $routeParams, videosService, Config){
 			function(response){
 				$scope.busy   = false;
 				$scope.videos = response.results;
-			}
+			},
+			function(){ $scope.busy = false; }
 		);
 
 	} else {
@@ -32,7 +33,8 @@ function ResultsController($scope, $routeParams, videosService, Config){
 			function(response){
 				$scope.busy   = false;
 				$scope.videos = response.results;
-			}
+			},
+			function(){ $scope.busy = false; }
 		);
 
 	}
@@ -57,7 +59,8 @@ function ResultsController($scope, $routeParams, videosService, Config){
 				}
 
 				$scope.busy = false;
-			}
+			},
+			function(){ $scope.busy = false; }
 		);
 
 	}
