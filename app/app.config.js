@@ -36,7 +36,7 @@ angular.module('mewpipe')
 	   		 * Auth Provider
 	   		 */
 	   		
-	   		$authProvider.loginOnSignup = false;
+	   		$authProvider.loginOnSignup = true;
 
 	   		$authProvider.baseUrl  = Config.server.url + ':' + Config.server.port + '/api';
 	   		
