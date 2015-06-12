@@ -12,7 +12,7 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 		"Select or drag your video",
 		"Start upload",
 		"Upload in progress",
-		"Upload successfull",
+		"Upload successful",
 		"Upload error"
 	];
 
