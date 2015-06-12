@@ -1,0 +1,5 @@
+.vjs-thumbnail {
+	border: 2px solid white;
+	bottom: 0;
+	@include border-radius(2px);
+}

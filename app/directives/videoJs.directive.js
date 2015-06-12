@@ -1,9 +1,9 @@
 angular.module('mewpipe')
 	   .directive('videoJs', videoJs);
 
-videoJs.$inject = ['$rootScope'];
+videoJs.$inject = ['$rootScope','Config'];
 
-function videoJs($rootScope){
+function videoJs($rootScope,Config){
 
 	/**
 	 * DEFAULT VARIABLES
@@ -57,6 +57,30 @@ function videoJs($rootScope){
 
 			player.src(sources);
 			player.poster(v.thumbnail_url + ($rootScope.token ? "?token="+$rootScope.token : "" ) );
+
+			var thumbnails = {};
+			
+			var url = Config.server.url + ':' + Config.server.port + '/api/videos/' + v.uid + "/thumbnail"
+			
+			if(v.duration <= Config.video.nbThumbnailsMax){
+				for(var i=1;i<=v.duration;i++){
+					thumbnails[i-1] = {
+						src : url + "?t=" + i + "&token=" + $rootScope.token,
+						width: '120px'
+					};
+				}
+			}else{
+				thumbnails[0] = {
+					src : url + "?t=1&token=" + $rootScope.token,
+				};
+				for(var i=1;i<=Config.video.nbThumbnailsMax;i++){
+					thumbnails[Math.round(i*(v.duration/Config.video.nbThumbnailsMax))] = {
+						src : url + "?t=" + i + "&token=" + $rootScope.token,
+					};
+				}
+			}
+			console.log(thumbnails);
+			player.thumbnails(thumbnails);
 
 			_setVideoSizes(player,videoContainer);
 
