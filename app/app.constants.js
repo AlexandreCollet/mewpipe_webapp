@@ -21,7 +21,7 @@ angular.module('mewpipe')
 	   		video : {
 	   			titleMaxLength  : 40,
 	   			maxSize         : 524288000,
-	   			nbThumbnailsMax : 100,
+	   			nbThumbnailsMax : 50,
 	   			status          : {
 	   				NEW       : 0,
 					UPLOADING : 1,
