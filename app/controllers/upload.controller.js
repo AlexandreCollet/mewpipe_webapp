@@ -77,7 +77,7 @@ function UploadController($scope,videosService,Upload,toastr,Config){
 				$scope.video.duration      = video.duration;
 				$scope.video.hr_duration   = video.hr_duration;
 				$scope.video.thumbnail_url = video.thumbnail_url;
-				$scope.nbThumbnails        = video.duration <= Config.video.nbThumbnailsMax ? video.duration : Config.video.nbThumbnailsMax;
+				$scope.nbThumbnails        = video.duration <= Config.video.nbThumbnailsMax ? video.duration-1 : Config.video.nbThumbnailsMax;
 			})
 		}).error(function(){
 			$scope.status = 4;

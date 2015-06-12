@@ -14,7 +14,7 @@ function EditVideoController($scope,videosService,toastr,Config){
 	$scope.video  = $scope.$parent.videos[videoIndex];
 	$scope.tags   = tagsArrayToObjects($scope.video.tags);
 
-	$scope.nbThumbnails = $scope.video.duration <= Config.video.nbThumbnailsMax ? $scope.video.duration : Config.video.nbThumbnailsMax;	
+	$scope.nbThumbnails = $scope.video.duration <= Config.video.nbThumbnailsMax ? $scope.video.duration-1 : Config.video.nbThumbnailsMax;	
 
 	$scope.editVideo = editVideo;
 
