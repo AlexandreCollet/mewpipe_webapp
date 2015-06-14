@@ -11,7 +11,7 @@
 	
 	margin-top: $gutterSize;
 	font-size: 0;
-	text-align: center;
+	text-align: justify;
 	
 	.description, .views, .shares, .tags { 
 		@include box-sizing(border-box);
