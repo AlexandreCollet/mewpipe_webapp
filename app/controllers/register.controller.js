@@ -37,6 +37,7 @@ function RegisterController($scope,$auth,toastr,Config){
 			toastr.success('Successfully registered','Success');
 		};
 		var errorCallback = function(response){
+			if(typeof response.data !== "object") return
 			for(var field in response.data){
 				for(var i=0,l=response.data[field].length;i<l;i++){
 					toastr.error(response.data[field][i], field);
