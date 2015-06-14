@@ -2,7 +2,7 @@ angular.module('mewpipe')
 	   .constant("Config", {
 	   		domain : "mewpipe.ang",
 	   		server : {
-		   		url  : "http://10.0.0.102",
+		   		url  : "http://127.0.0.1",
 		   		port : 8000,
 	   		},
 	   		requests : {
