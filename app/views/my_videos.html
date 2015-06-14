@@ -17,7 +17,7 @@
         <h2>My videos</h2>
     </div>
 
-    <p ng-hide="videos.length" class="no-video">No video uploaded</p>
+    <p ng-hide="videos.length || busy" class="no-video">No video uploaded</p>
 
     <table infinite-scroll="loadMore()" ng-show="videos.length">
         
