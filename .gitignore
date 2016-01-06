@@ -1,4 +1,6 @@
-# Created by https://www.gitignore.io
+app/app.constants.js
+
+ Created by https://www.gitignore.io
 
 ### OSX ###
 .DS_Store
