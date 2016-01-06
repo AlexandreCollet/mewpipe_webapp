@@ -11,9 +11,9 @@ angular.module('mewpipe')
 	   		});
 
 	   		/**
-	   		 * Tags Input 
+	   		 * Tags Input
 	   		 */
-	   		
+
 	   		tagsInputConfigProvider.setDefaults('tagsInput',{
 	   			addOnSpace : true,
 	   			addOnBlur  : true,
@@ -28,18 +28,18 @@ angular.module('mewpipe')
 	   		/**
 	   		 * HTTP Provider
 	   		 */
-	   		
+
 	   		$httpProvider.interceptors.push('errorsInterceptor');
 	   		$httpProvider.interceptors.push('tokenInterceptor');
 
 	   		/**
 	   		 * Auth Provider
 	   		 */
-	   		
+
 	   		$authProvider.loginOnSignup = true;
 
 	   		$authProvider.baseUrl  = Config.server.url + ':' + Config.server.port + '/api';
-	   		
+
 			$authProvider.loginUrl     = '/login/';
 			$authProvider.signupUrl    = '/user/';
 			$authProvider.loginRoute   = '/login';
@@ -49,7 +49,7 @@ angular.module('mewpipe')
 
 	   		$authProvider.facebook({
 	   			url      : '/facebook/',
-		      	clientId : '950692341649325',
+		      	clientId : Config.facebook.clientId,
 		      	scope : ['public_profile', 'email']
 		    });
 

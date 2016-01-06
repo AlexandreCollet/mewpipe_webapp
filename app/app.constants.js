@@ -5,6 +5,9 @@ angular.module('mewpipe')
 		   		url  : "http://127.0.0.1",
 		   		port : 8000,
 	   		},
+	   		facebook : {
+	   			'clientId' : '950692341649325',
+	   		},
 	   		requests : {
 	   			defaultLimit : 25
 	   		},
